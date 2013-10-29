@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+{% for post in paginator.posts %}
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">{{ post.date | date_to_string }}</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                {{ post.content | strip_html | truncatewords:20 }}
+                <a href="{{ BASE_PATH }}{{ post.url }}" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+{% endfor %}
+
+<!-- Pagination links -->
+<div id="post-pagination" class="pagination">
+    <ul class="pages clearfix">
+        {% if paginator.previous_page %}
+        <li>
+            {% if paginator.previous_page == 1 %}
+            <a href="/">Prev</a>
+            {% else %}
+            <a href="/page{{paginator.previous_page}}">Prev</a>
+            {% endif %}
+        </li>
+        {% else %}
+        <li class="disabled"><a href="#">Prev</a></li>
+        {% endif %}
+
+
+        {% if paginator.page == 1 %}
+        <li class="active"><a href="/page1">1</a></li>
+        {% else %}
+        <li><a href="/page1">1</a></li>
+        {% endif %}
+
+        {% for count in (2..paginator.total_pages) %}
+
+        {% if count == paginator.page %}
+        <li class="active">
+            <span class="current-page">{{count}}</span>
+        </li>
+        {% else %}
+        <li><a href="/page{{count}}">{{count}}</a></li>
+        {% endif %}
+
+        {% endfor %}
+
+        {% if paginator.next_page %}
+        <li><a href="/page{{paginator.next_page}}">Next</a></li>
+        {% else %}
+        <li class="disabled"><span>Next</span></li>
+        {% endif %}
+    </ul>
+</div>

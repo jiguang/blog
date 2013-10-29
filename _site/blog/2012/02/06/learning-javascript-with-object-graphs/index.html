@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>通过对象图学习JavaScript [之一] 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">通过对象图学习JavaScript [之一]</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">06 February 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>成为一个高效的JavaScript开发者的秘诀之一就是真正理解这门语言的语义。本文将会通过通俗易懂的图表来解释JavaScript中最基本的核心内容。</p>
+
+<p><strong>随处可见的引用</strong></p>
+
+<p>JavaScript中的变量其实一个标签，它引用了内存中某个位置的一个值。这些值可以是字符串、数字和布尔值的原始值。它们也可以是对象（object）或函数（function）。</p>
+
+<p><strong>本地变量</strong></p>
+
+<p>在下面这个例子中，我们会在顶级作用域中创建四个本地变量，并将它们指向某个原始值。</p>
+
+<pre><code>// 我们在顶层作用域创建一些本地变量
+var name = &quot;Tim Caswell&quot;;
+var age = 28;
+var isProgrammer = true;
+var likesJavaScript = true;
+// 测试一下看看两个变量是否引用了相同的值
+isProgrammer === likesJavaScript;</code></pre>
+
+<p>输出 =&gt; true<br /><img alt='NewImage' src='http://jiguang.github.com/content/uploads/2012/02/NewImage.png' /><br />注意两个布尔值指向的是内存中的同一位置，这是因为原始值是不变的，因此虚拟机（JavaScript解释器 ——<a href='http://jiguang.github.com' title='译者'>译者</a>注）可以优化它们使所有的引用共享这个原始值的同一个实例。</p>
+
+<p>在这个代码片段中，我们使用 === 来判断两个引用是否指向同一个值，得到的结果是 true。</p>
+
+<p>外面的框代表最外层的封闭作用域。这些变量是最顶级的本地变量，不要把它们跟global/window对象的属性相混淆了。</p>
+
+<p><strong>对象和原型链</strong></p>
+
+<p>对象只不过是更多引用的集合，它们指向新创建的对象和原型。它们唯一增添了一点比较特殊的特性就是原型链（Prototype Chains），当你试图访问一个不属于本地对象而属于其父对象的属性时就会用到原型链。</p>
+
+<pre><code>// 创建一个父对象
+var tim = {
+    name: &quot;Tim Caswell&quot;,
+    age: 28,
+    isProgrammer: true,
+    likesJavaScript: true
+}
+// 创建一个子对象
+var jack = Object.create(tim);
+// 覆盖一些本地属性
+jack.name = &quot;Jack Caswell&quot;;
+jack.age = 4;
+// 通过原型链进行查找
+jack.likesJavaScript;</code></pre>
+
+<p>输出 =&gt; true<br /><img alt='prototypechain' src='http://jiguang.github.com/content/uploads/2012/02/prototypechain.png' /><br />这里，我们有一个包含四个属性的被 tim 变量所引用的对象，同时我们创建了一个新的对象，该对象继承自第一个对象并且引用为 jack，然后我们覆盖了本地对象的两个属性。</p>
+
+<p>现在，当我们查找jack.likesJavaScript时，起初会找到了jack所引用的对象，然后会继续查找likesJavaScript属性。由于本地对象中并不包含该属性，因此我们查找其父对象并找到了该属性，最后则找到了该属性所指向的true这个值。</p>
+
+<p><strong>全局对象</strong></p>
+
+<p>你想知道为什么像<a href='http://jslint.com/'>jslint</a>这种工具经常会提示你别忘了在变量前面增加var声明吗？好吧，看看如果丢掉的话会发生什么情况。</p>
+
+<pre><code>var name = &quot;Tim Caswell&quot;;
+var age = 28;
+var isProgrammer = true;
+// 不小心丢掉了var
+likesJavaScript = true;</code></pre>
+
+<p><img alt='novar' src='http://jiguang.github.com/content/uploads/2012/02/novar.png' /><br />注意，现在likesJavaScript已经是全局对象的一个属性，而不是外层封闭作用域中的一个自由变量了。这种情况只有在混搭几段脚本时才会有问题。但是，在任何真正的程序中都会出现混搭的情况。</p>
+
+<p>请牢记一定要添加这些var声明，这样才能保证你的变量是在当前的作用域及其子对象的作用域中。遵循这个简单的规则将使你受益匪浅。</p>
+
+<p>如果你必须要在全局对象上添点儿东西，那么在浏览器中就明确地使用window.woo，而在node.js中则使用global.goo。</p>
+
+<p><strong>函数与闭包</strong></p>
+
+<p>JavaScript并不只是一系列的链式数据结构，它还包含了被称作函数（function）的可执行、可调用的代码。这些函数会创建链式作用域和闭包（closure）。</p>
+
+<p><strong>可视化的闭包</strong></p>
+
+<p>函数可以被看作是包含可执行代码及属性的特殊对象。每个函数都有一个特殊的<code>scope</code>属性，它代表了函数被定义时的环境。如果一个函数是由另外一个函数返回的，则这个指向旧环境的引用就会在一个“闭包”中被新的函数所终止。</p>
+
+<p>在这个例子中，我们会创建一个简单的工厂方法，它可以生成一个闭包并返回一个函数。</p>
+
+<pre><code>function makeClosure(name) {
+    return function () {
+        return name;
+    };
+}
+var description1 = makeClosure(&quot;Cloe the Closure&quot;);
+var description2 = makeClosure(&quot;Albert the Awesome&quot;);
+console.log(description1());
+console.log(description2());</code></pre>
+
+<p>输出 Cloe the Closure Albert the Awesome</p>
+
+<p>当我们调用description1()时，虚拟机会查找它所引用的函数并执行。由于这个函数会查找一个名为name的本地变量，因此它会在闭包作用域中进行查找。这个工厂方法的好处就是，每个生成的函数都有自己的本地变量空间。</p>
+
+<p>参见这篇“为什么使用闭包（<a href='http://howtonode.org/why-use-closure'>why use closure</a>）”来获得更多关于闭包及其使用的内容。</p>
+
+<p><strong>共享的函数和this关键字</strong></p>
+
+<p>有时由于性能的原因，或者因为就是喜欢这种风格，JavaScript提供了一个this关键字允许你在不同的作用域中依据函数被调用的形式来重用函数对象。</p>
+
+<p>这里我们创建一些对象，它们全部共享同一个函数，这个函数会在内部引用this来展示调用过程中的变化。</p>
+
+<pre><code>var Lane = {
+    name: &quot;Lane the Lambda&quot;,
+    description: function () {
+        return this.name;
+    }
+};
+var description = Lane.description;
+var Fred = {
+    description: Lane.description,
+    name: &quot;Fred the Functor&quot;
+};
+// 从四个不同的作用域调用函数
+console.log(Lane.description());
+console.log(Fred.description());
+console.log(description());
+console.log(description.call({
+    name: &quot;Zed the Zetabyte&quot;
+}));</code></pre>
+
+<p>输出：Lane the Lambda Fred the Functor undefined Zed the Zetabyte</p>
+
+<p>在此图中，我们看到即使Fred.description被设置成Lane.description，它实际上也只是引用了函数本身。因此，三个引用都同样对匿名函数拥有所有权。这就是为什么我没有在构造原型上通过“method”来调用函数的缘故，因为这意味着函数与其构造器和它的“类”之间的某种绑定关系。（详见”什么是this“<a href='http://howtonode.org/what-is-this'>what is this</a> 获得更多关于this的动态本质的细节）</p>
+
+<p>我很乐于用图表来使这些数据结构可视化，我希望这些内容可以帮助我们这些视觉学习者更好地掌握JavaScript的语义。我曾有过前端开发/设计和服务器端架构的经验。我希望我独特的视角能够帮助那些从设计岗位过来，并想深入学习这门被称作JavaScript的美妙语言的同学。</p>
+
+<p>原文地址：<a href='http://howtonode.org/object-graphs'>http://howtonode.org/object-graphs</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/02/04/firefox-10-web-developer-tool" title="Firefox 10内置的Web开发者工具"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/02/09/smashing-css-firebug-quick-tutorial" title="【TEAP早期试读】Firebug快速入门教程">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#教程-ref">教程 <span>4</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

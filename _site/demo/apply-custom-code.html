@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>应用自定义代码DEMO</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        #container{width: 400px; height: 300px; border: 2px solid #333;}
+        #code{ width: 400px; height: 300px; border: 2px solid #333; }
+    </style>
+</head>
+<body>
+<!-- 自定义代码区域 -->
+<h3>自定义代码区域</h3>
+<div id="container"></div>
+
+<h3>请粘贴自定义代码</h3>
+<textarea id="code" ></textarea>
+
+<button type="button" id="applyCode">Apply Code</button>
+
+<script type="text/javascript">
+
+    // 应用自定义代码
+    function applyCustomCode(code/* custom code */, container/* custom code container ID */){
+
+        if(!typeof code === "string" || !container || !document.getElementById(container)){
+            return;
+        }
+
+        // 计算页面内style节点的数目
+        function countStyleSheets(){
+            return document.getElementsByTagName('style').length;
+        }
+
+        var original = countStyleSheets();
+
+        // 将代码插入容器中
+        document.getElementById(container).innerHTML = code;
+
+        // 如果相等则说明自定义代码中的style节点没有插入成功
+        if(countStyleSheets() === original){
+
+            var regExp = /<style.*?>([\s\S]*?)<\/style>/ig;
+
+            // 方案1：将style放到代码底部
+            if(code.match(regExp)[0]){
+                code = code.replace(regExp,'') + code.match(regExp)[0];
+                document.getElementById(container).innerHTML = code;
+            }
+
+            // 方案2：单独提取style将其插入到head中
+            /*code.replace(regExp, function(match, cssText){
+
+                var head = document.getElementsByTagName('head')[0],
+                        style = document.createElement('style'),
+                        rules = document.createTextNode(cssText);
+
+                style.type = 'text/css';
+                if(style.styleSheet)
+                    style.styleSheet.cssText = rules.nodeValue;
+                else style.appendChild(rules);
+                head.appendChild(style);
+
+                return '';
+            });*/
+        }
+    }
+
+    // 以下为测试用代码
+    document.getElementById('applyCode').onclick = function(){
+        var code = document.getElementById('code').value;
+        applyCustomCode(code, 'container');
+    };
+
+</script>
+</body>
+</html>

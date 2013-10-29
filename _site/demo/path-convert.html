@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://44ux.com/demo/path-convert.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        .bookmark a,.bookmark a:hover{
+            display:block;width:60px; padding:10px;text-decoration:none;background-color:#ccc;border:2px solid #333;
+            border-radius:4px;color:#333;
+        }
+    </style>
+</head>
+<body>
+
+<strong>功能：可将文件路径转换为URL，用于访问静态资源以及发布后的验证</strong>
+<p>操作结果：统一转换为 <strong>http://static.paipaiimg.com</strong> 下的文件并添加时间戳</p>
+<p>支持路径类型:</p>
+<p>本地文件路径：F:\\xxxx\xxxx\<strong>static</strong>\shop\pbcss\shop_item.css</p>
+<p>残缺的地址：/<strong>static</strong>/my/xxx.png</p>
+<p>EOS单路径：/data/eos/gamma/dist/c2c/html/newforward/<strong>static</strong>/module/layout_share_praise.css</p>
+<p>要点：路径中需要包含 <strong>static</strong> 关键字</p>
+
+<strong>使用：将这个BookMarklet拖到书签栏，按照提示输入符合规则的路径</strong>
+
+<p class="bookmark"><a href="javascript:var u= window.prompt('Input File Path:');u.indexOf('static')!=-1?location.href=u.replace(/\\/g,'/').replace(/.*static/i,'http://static.paipaiimg.com')+'?t='+(+new Date):0">Convert</a></p>
+
+
+</body></html>

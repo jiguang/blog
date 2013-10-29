@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Mac下安装 nodejs 的几种方法 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">Mac下安装 nodejs 的几种方法</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">19 November 2011</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>在 <a href='http://jiguang.github.com/index.php/tag/mac/' title='mac'>mac</a> 下安装 <a href='http://jiguang.github.com/index.php/tag/nodejs-2/' title='nodejs'>nodejs</a> 相对来说是比较方便的，如果你之前安装过类似 <a href='http://www.macports.org/install.php'>Macports</a> 或者 <a href='http://mxcl.github.com/homebrew/'>homebrew</a> 这样的工具，只需要简单的一句话就可以安装。如果使用的是 Macports，那么在终端执行如下命令即可：</p>
+
+<pre><code>brew install node</code></pre>
+
+<p>如果使用的是 homebrew，则执行下面的命令即可安装：</p>
+
+<pre><code>sudo port install nodejs</code></pre>
+
+<p>如果你没有使用过这两个工具，建议去尝试使用一下，可以像 linux 下面的 apt-get 一样安装软件，非常方便。</p>
+
+<p>如果你还没有使用过这两个工具，那么就只能手动安装了。Mac 下默认没有安装 gcc，无法直接从源码编译安装，<a href='http://jiguang.github.com' title='姬光'>laser</a> 尝试了单独安装 gcc 的方法，没有成功。最好的建议是直接从 AppStore 下载安装 Xcode，安装之后常用的开发工具包就都有了。不过下载 Xcode 时间比较长，网速比较好的话可能也要 4 个小时以上。</p>
+
+<p>安装好 Xcode 后，系统就有了 gcc 的功能，下面可以继续安装 <a href='http://jiguang.github.com/index.php/tag/git/' title='git'>git</a>，从 Git clone 下来源码进行编译安装。关于 Git 是什么和如何安装 Git，网上已经有无数的资料，laser 这里就不再赘述了，推荐去看 <a href='http://help.github.com/win-set-up-git/'>Github 的帮助文档</a>，讲解很详细，只不过是英文的。从 Git 安装的步骤如下：</p>
+
+<pre><code>git clone https://github.com/joyent/node.git nodejs
+cd nodejs
+./configure
+make
+sudo make install</code></pre>
+
+<p>等待命令成功执行即安装完成了。</p>
+
+<p>如果你没有安装 Git，那么也可以直接<a href='http://nodejs.org/#download'>下载 nodejs 的源码</a>，解压缩后放到合适的路径，然后进入该文件夹，仍然执行：</p>
+
+<pre><code>cd nodejs
+./configure
+make
+sudo make install</code></pre>
+
+<p>即可安装。</p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2011/11/18/an-unexpected-http-error-occurred-during-the-api-request-on-wordpress" title="Wordpress不能安装插件或主题"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2011/11/22/mac-lion-apache-php-environment" title="Mac Lion系统配置php环境">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#Git-ref">Git <span>5</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

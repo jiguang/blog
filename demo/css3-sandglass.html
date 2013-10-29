@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Sandglass</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<style type="text/css">
+    .wrap{
+        margin: 100px;  /* 用于Demo，防止太靠边 */
+        width: 102px;
+        height: 172px;
+        position: relative;
+        border: 2px solid #333;
+        border-width: 6px 2px;
+    }
+    .left, .right{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: 50px;
+        left: -36px;
+        border: 2px solid #333;
+        border-left-style: none;
+        border-bottom-style: none;
+        background-color: #fff;
+        -webkit-transform: rotate(45deg);  /* 简单起见，只写webkit的样式，其他浏览器请自行扩充 */
+    }
+    .right{
+        left: 67px;
+        -webkit-transform: rotate(225deg);
+    }
+    .top, .bottom{
+        width: 102px;
+        height: 86px;
+        background-color: #369;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: height 10s linear 0s, top 10s linear 0s; /* 变换 */
+
+        /* 渐变背景 */
+        background-image: -webkit-linear-gradient(left , rgb(84,158,222) 20%, rgb(38,113,171) 52%);
+        background-image: -webkit-gradient(linear,left top,right top,color-stop(0.2, rgb(84,158,222)),color-stop(0.52, rgb(38,113,171)));
+    }
+
+    .bottom{
+        top: 173px;
+        height: 0;
+    }
+    .line{
+        visibility: hidden;
+        height: 84px;
+        width: 0;
+        border: 1px dotted #369;
+        position: absolute;
+        top: 86px;
+        left: 51px;
+    }
+    .wrap:hover .top{
+        height: 0;
+        top: 86px;
+    }
+    .wrap:hover .bottom{
+        top: 87px;
+        height: 86px;
+    }
+    .wrap:hover .line{
+        visibility: visible;
+    }
+</style>
+<h2>CSS3 10秒倒计时沙漏 - Webkit only @44ux.com</h2>
+<div class="wrap">
+    <div class="line"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

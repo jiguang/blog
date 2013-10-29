@@ -1,0 +1,42 @@
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">{{ page.title }}</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">{{ page.date | date_to_long_string }}</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            {{ content }}
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> {{ site.title }} </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                {% if page.previous %}
+                <div class="nav-previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                {% endif %}
+
+                {% if page.next %}
+                <div class="nav-next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                {% endif %}
+            </nav>
+            {% include JB/comments %}
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    {% unless page.tags == empty %}
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            {% assign tags_list = page.tags %}
+            {% include JB/tags_list %}
+        </ul>
+    </footer><!-- end cat-tags -->
+    {% endunless %}
+</article><!-- end post -->

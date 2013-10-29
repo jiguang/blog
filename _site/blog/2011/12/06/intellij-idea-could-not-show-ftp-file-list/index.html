@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Intellij IDEA配置自动同步到FTP服务器 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">Intellij IDEA配置自动同步到FTP服务器</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">06 December 2011</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p><a href='http://www.jetbrains.com/idea/'>Intellij IDEA</a> 是一款非常强大到跨平台的IDE，可以在任何主流操作系统中使用并且保证一致的操作习惯。但是这款优秀的IDE的相关中文教程却少得可怜，大部分使用者都是在慢慢摸索、互相学习才得以熟练使用。</p>
+
+<p>这里<a href='http://jiguang.github.com'>laser</a>介绍一下 FTP 服务器自动同步的配置和一些注意事项，希望能对你有所帮助。</p>
+
+<p>首先前提是你已经创建了一个本地的工程，然后假设我在工程目录里新建一个文件夹叫做wordpress，我们将用它来同步我的 FTP 服务器上的文件。</p>
+
+<p>打开“Tools -&gt; Deployment -&gt; Configuration…”，然后点击左上角的小加号新建一个服务器，在“Connection”页卡下填好各项参数。</p>
+
+<p>填写完“FTP host”和“User name”、“Password”之后，可以选择“Test FTP connection…”测试一下设置是否正确，如果提示“Successfully connected to xx.xx.xx.xx”则说明连接成功。</p>
+
+<p>还有一项“Root path”可以选择“Autodetect…”，但要注意一定要在连接测试成功以后才能点，你也可以点击旁边的省略号按钮，手动指定“Root path”。</p>
+
+<p>注意：这里有的FTP服务器无法自动检测，当点击旁边的省略号按钮时也无法列出服务器文件目录，这时你需要点击“Advanced options…”，然后将“Passiv mode”勾选上即可。</p>
+
+<p>填完这些以后我们就有了一个有效的服务器连接了，下面转到“Mappings”页卡，这里有三个输入框，第一个“Local path”当然就是你本地的路径了，你可以点省略号按钮，选择刚刚创建的wordpress目录。</p>
+
+<p>第二个输入框是“Deployment path on server ‘xxx’”，这个就是你希望部署在服务器上的哪个目录，一般跟“Connection”页卡下的“Root path”是相同的，如果是默认的根目录就是一个斜杠“/”。当然你也可以部署到其他目录。这个目录部署后，本地的 wordpress 文件夹里面的文件，在上传时就会保存到这个目录中。</p>
+
+<p>第三个输入框是“Web path on server ‘xxx’”，这个是通过你的网址可以访问到的路径，因为有的时候部署的路径不一定是实际的访问路径。如果部署的路径与实际的访问路径相同，则此处只填一个英文句点“.”即可，代表当前路径。</p>
+
+<p>当完成这些以后，点击下方的“Apply”，然后点“Ok”关闭对话框。</p>
+
+<p>这时，在Project列表中右键点击创建的wordpress文件夹，应该会多出一个“Deployment”选项，里面的子选项即为上传和下载文件或目录，这说明本地的文件夹已经和 FTP 服务器上的路径建立了联系。</p>
+
+<p>如果想要设置在本地保存后自动同步到 FTP 服务器，可以先左键单击 wordpress 目录，然后选择“Tools -&gt; Deployment -&gt; Configuration…”打开刚才设置服务器的对话框，在左侧选择此服务器，然后单击上方四个小图标最右侧服务器模样的图标，点击后可以看到服务器的名字加粗了，这样就将该服务器设置成了wordpress目录首要使用的服务器连接，完成后关闭对话框。</p>
+
+<p>再次打开“Tools -&gt; Deployment ”，单击下方的“Automatic Upload”，这样就完成了自动同步的设置，当本地的 wordpress 目录中有文件修改并保存时，将自动同步到服务器（前提是本地与服务器上目录结构一致且文件名相同）。</p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2011/11/22/mac-lion-apache-php-environment" title="Mac Lion系统配置php环境"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2011/12/06/mac-quick-start-shutdown-reboot-lock" title="Mac 快速休眠关机重启锁屏">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#IDEA-ref">IDEA <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

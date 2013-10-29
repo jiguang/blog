@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>简单的随机数实现</title>
+        <style type="text/css">
+            *{margin:0;padding:0;}
+            ul{list-style:none;}
+            h1{margin:10px;color:#333;}
+            #container{overflow:hidden;padding:10px;}
+            #container li{float:left;padding:20px; margin-right:10px; border:2px solid #fff;border-radius:10px;text-align:center;font:50px/1em arial;color:#fff;}
+            #shuffle{margin:10px;}
+        </style>
+    </head>
+    <body>
+        <h1>Random Card</h1>
+		<ul id="container">
+			<li class="pk" style="background:red;">Red</li>
+			<li class="pk" style="background:green;">Green</li>
+			<li class="pk" style="background:pink;">Pink</li>
+			<li class="pk" style="background:purple;">Purple</li>
+			<li class="pk" style="background:blue;">Blue</li>
+			<li class="pk" style="background:orange;">Orange</li>
+		</ul>
+
+        <button id="shuffle">开始随机洗牌</button>
+    </body>
+	<script	type="text/javascript">
+        function shuffle(){
+            // 获取列表项
+            var temp = document.getElementsByTagName('li');
+
+            // 创建新数组用来保存列表项
+            var list = new Array();
+
+            // 为每个列表项分配一个随机数属性，并将其存入新数组
+            for(var i=0, j=temp.length; i<j; i++){
+                temp[i].order = Math.random();
+                list.push(temp[i]);
+            }
+
+            // 对新数组按其随机数属性进行排序
+            list = list.sort(function(a,b){
+                return a.order - b.order;
+            });
+
+            var container = document.getElementById('container');
+
+            container.style.display = 'none';  // offline
+            container.innerHTML = '';
+
+            for(; list.length>0; ){
+                container.appendChild(list.pop());
+            }
+
+            container.style.display = 'block';
+        }
+
+		document.getElementById('shuffle').onclick = function(){
+            shuffle();
+        };
+	</script>
+</html>

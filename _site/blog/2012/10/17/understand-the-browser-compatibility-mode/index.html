@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>深入理解浏览器兼容性模式 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    <meta name="description" content="深入理解浏览器兼容性模式">
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">深入理解浏览器兼容性模式</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">17 October 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p><strong>UPDATE:</strong> 本文已被 <a href='http://www.csdn.net/article/2012-10-22/2811049-Understanding-the-browser-compatibility-'>CSDN</a> 转载，可惜木有稿费，还把作者链接去掉了&#8230;</p>
+
+<p>关于各种浏览器模式，网上已经有许多文档和资料了，但是很少有能够完全将几个概念阐述清楚的。大部分的资料稍显过时，有些内容可能已经不再适用了。本文中<a href='http://44ux.com'>笔者</a>将尽可能将几个概念阐述清楚，并去掉一些过时的内容，仅保留必要的干货。</p>
+
+<p>想必你一定知道浏览器有个标准（Standards）模式和一个怪异（Quirks）模式，或许你还听说过有个“准标准（Almost Standards）”模式。而当你打开 Internet Explorer 的时候，又看到了什么浏览器模式、文档模式，还有什么兼容性视图等等&#8230;</p>
+
+<p>这些都是什么？啥是浏览器模式，啥是文档模式？标准模式和准标准的模式有什么区别？IE9兼容性视图和真正的IE9有什么区别？什么情况下会触发这些模式，又该怎样才能检测到浏览器当前处于哪种模式中呢？本文将详细为你解答这些疑问。</p>
+
+<p><strong>三种模式</strong></p>
+
+<p>首先我们要知道，为什么会有这么多模式。其实这是个历史遗留问题，在<a href='http://en.wikipedia.org/wiki/Browser_wars'>浏览器大战</a>时期，网景浏览器（Netscape Navigator）和微软的IE浏览器（Microsoft Internet Explorer）对网页分别有不同的实现方式，那个时候的网页要针对这两种浏览器分别开发不同的版本。而到了 <a href='http://www.w3.org/'>W3C</a> 制定标准之后，这些浏览器就不能继续使用这种页面了，因而会导致大部分现有站点都不能使用。基于这个原因，浏览器才引入两种模式来处理一些遗留的站点。</p>
+
+<p>现在的浏览器排版引擎支持三种模式：怪异（Quirks）模式、准标准（Almost Standards）和标准（Standards）模式。在怪异模式中，排版引擎会模拟 网景4 和 Windows 中的 IE5 的行为；在完全标准的模式中，会尽量执行 HTML 和 CSS 规范所指定的行为；而在准标准模式中，则只包含很少的一部分怪异模式中的行为。</p>
+
+<p>那么所谓标准模式，就一定都“标准”吗？答案当然是否定的，因为各个浏览器厂商实现标准的阶段不同，所以各个浏览器的“标准模式”之间也会有很大的不同。</p>
+
+<p>Firefox、Safari、Chrome、Opera (自 7.5 以后)、 IE8 和 IE9 都有一个准标准模式。那么既然标准模式都不那么标准，准标准的模式肯定就更不标准了。<a href='http://meyerweb.com/eric/thoughts/2008/01/24/almost-target/'>最初的准标准模式</a>只会<a href='https://developer.mozilla.org/en-US/docs/Images,_Tables,_and_Mysterious_Gaps'>影响表格中的图像</a>，而后来各个浏览器又或多或少地进行了修改。那么什么情况下会触发准标准模式呢？是的，正如你所想到的，某些 <a href='http://en.wikipedia.org/wiki/Document_Type_Declaration'>DOCTYPE</a> 会触发准标准模式，例如：</p>
+
+<pre><code>&amp;quot;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;quot;
+&amp;quot;-//W3C//DTD XHTML 1.0 Frameset//EN&amp;quot;
+&amp;quot;-//W3C//DTD HTML 4.01 Transitional//EN&amp;quot;
+&amp;quot;-//W3C//DTD HTML 4.01 Frameset//EN&amp;quot;
+&amp;quot;http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd&amp;quot;</code></pre>
+
+<p>一个完整的 DOCTYPE 例子如下：</p>
+
+<pre><code>&amp;lt;!DOCTYPE HTML PUBLIC &amp;quot;-//W3C//DTD HTML 4.01 Transitional//EN&amp;quot;
+                      &amp;quot;http://www.w3.org/TR/html4/loose.dtd&amp;quot;&amp;gt;</code></pre>
+
+<p>如果在 <a href='http://www.mozilla.org/en-US/firefox/new/'>Firefox</a> 中插入这种 DOCTYPE，并在页面中插入一个空的 <code>span</code> 标签，那么在 <a href='https://getfirebug.com/'>Firebug</a> 中查看元素的布局就会发现不同：</p>
+
+<p>准标准模式中元素的 line-height 被忽略了，元素既没有宽度也没有高度：</p>
+
+<p><img alt='Almost Standards' src='http://44ux.com/content/uploads/2012/10/almost-standards.png' /></p>
+
+<p>标准模式中元素仍然保留了 line-height，拥有 18px 的高度：</p>
+
+<p><img alt='Standards' src='http://44ux.com/content/uploads/2012/10/full-standards.png' /></p>
+
+<p>在 Firefox 浏览器中，使用鼠标右键 -&gt; 查看页面信息 可以看到当前浏览器运行在何种模式（只能看到“混杂模式”和“标准规范模式”两种表示）：</p>
+
+<p><img alt='mozilla-standard-mode' src='http://44ux.com/content/uploads/2012/10/mozilla-standard-mode.png' /></p>
+
+<p>有位大神 <a href='http://hsivonen.iki.fi/author/'>Henri Sivonen</a> 曾写过一篇文章叫做 <a href='http://hsivonen.iki.fi/doctype/'>Activating Browser Modes with Doctype</a>，里面包含了一个完整的表格，展示了各种 DOCTYPE 设置将会使浏览器以何种方式渲染。这里还有一篇 <a href='http://dancewithnet.com'>秦歌</a> 的译文 <a href='http://dancewithnet.com/2009/06/14/activating-browser-modes-with-doctype/'>《用doctype激活浏览器模式》</a>。</p>
+
+<p>鉴于目前一些最新版本的浏览器已经放弃了准标准模式，所以关于准标准模式的细节这里就不再赘述了，感兴趣的同学可以详细阅读以下资料：</p>
+
+<ul>
+<li>
+<p><a href='https://developer.mozilla.org/en-US/docs/Gecko&apos;s_Almost_Standards_Mode?redirectlocale=en-US&amp;redirectslug=Gecko%27s_%22Almost_Standards%22_Mode'>Gecko&#8217;s &#8220;Almost Standards&#8221; Mode</a></p>
+</li>
+
+<li>
+<p><a href='http://msdn.microsoft.com/en-us/library/ff405794%28v=vs.85%29'>Line Height Calculations in Almost Standards Mode</a></p>
+</li>
+
+<li>
+<p><a href='https://developer.mozilla.org/en-US/docs/Images,_Tables,_and_Mysterious_Gaps'>Images, Tables, and Mysterious Gaps</a></p>
+</li>
+
+<li>
+<p><a href='http://meyerweb.com/eric/css/tests/almost-standards.html'>almost-standards test</a></p>
+</li>
+
+<li>
+<p><a href='http://www.opera.com/docs/specs/doctype/'>DOCTYPE Switches support in Opera Presto 2.10</a></p>
+</li>
+</ul>
+
+<p>那么，既然这么多的 DOCTYPE 都会触发非标准的模式，那么如何才能触发标准模式呢？对了！要使用 <a href='http://dev.w3.org/html5/spec/#the-doctype'>HTML5 DOCTYPE</a>，即：</p>
+
+<pre><code>&amp;lt;!DOCTYPE html&amp;gt;</code></pre>
+
+<p>注意：如果文档中没有包含 DOCTYPE 或者包含了一个无法识别的 DOCTYPE，则浏览器就会进入怪异模式。</p>
+
+<p>下面简单说一下怪异模式。怪异模式有许多“怪异”的行为，主要是为了兼容那些遗留的古老页面而保留的模式。不同浏览器的怪异模式也不尽相同，它们都有自己的实现方式。怪异模式与标准模式的差异主要体现在 <a href='http://www.w3.org/TR/CSS2/box.html'>盒模型（box model）</a>、表格单元格高度的处理等。例如 IE 的怪异模式中，元素的 width 包含了 padding 和 border，而标准模式中 padding 和 border 并不属于宽度的一部分。</p>
+
+<p>若想详细了解浏览器在怪异模式下的行为，可以参看下面两篇文章。不过不建议在这上面花太多的精力，这是个历史遗留问题，而且我们也尽量保证新开发的页面不要进入到怪异模式：</p>
+
+<ul>
+<li>
+<p><a href='https://developer.mozilla.org/en-US/docs/Mozilla_Quirks_Mode_Behavior'>Mozilla Quirks Mode Behavior</a></p>
+</li>
+
+<li>
+<p><a href='http://www.cs.tut.fi/~jkorpela/quirks-mode.html'>What happens in Quirks Mode?</a></p>
+</li>
+
+<li>
+<p><a href='http://hixie.ch/tests/adhoc/compat/mozilla/001.cgi?DOCTYPE=%3C!DOCTYPE+HTML%3E&amp;MODE=full&amp;EXPECT=standards%20mode'>Compatability Mode Test</a></p>
+</li>
+</ul>
+
+<p><strong>小结：</strong> 至此我们需要了解，浏览器有三种运行模式，即标准模式、准标准模式和怪异模式，要使用 <code>&lt;!DOCTYPE html&gt;</code> 来正确地触发标准模式。千万不要丢掉 DOCTYPE 声明，因为这会导致浏览器进入怪异模式。</p>
+
+<p><strong>IE的浏览器模式</strong></p>
+
+<p>IE8有4种模式：IE5.5怪异模式、IE7标准模式、IE8 准标准模式和IE8标准模式，而IE9有7种模式: IE5.5怪异模式、IE7标准模式、IE8准标准模式、IE8标准模式、IE9准标准模式、IE9标准模式、XML模式。</p>
+
+<p>其中 XML模式 是针对 XML 文档的，这里不打算阐述，细节可以看这篇文章<a href='http://msdn.microsoft.com/en-us/library/cc288325(v=vs.85\'>Defining Document Compatibility</a>.aspx) 中有详细阐述。</p>
+
+<p>在 IE8 及以后的的 IE 浏览器中，支持 <code>X-UA-Compatible</code> 头，可以通过在服务器端设置 HTTP 头，或者在页面中插入 <code>&lt;meta&gt;</code> 标签来实现：</p>
+
+<pre><code>HTTP:
+Header set X-UA-Compatible &quot;IE=8&quot;
+
+Meta:
+&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=EmulateIE7&amp;quot; /&amp;gt;</code></pre>
+
+<p>这种方法主要是防止老的页面在较新的浏览器中显示不正常的情况的， 比如上面的代码可以强制 IE8 以上版本的浏览器以IE7的模式进行渲染。</p>
+
+<p>注意，不要在新开发的网页中使用这种技术，这种技术只应该作为新老网页更替过程中的过渡方案。由于目前新开发的网页都是尽量支持最新版本的浏览器的，所以这种技术也会慢慢被淘汰，感兴趣的同学可以详细阅读 <a href='http://msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx' target='_blank'>微软的这篇文档</a>。</p>
+
+<p><strong>小结：</strong> 这里我们需要知道有这种方式可以强制浏览器以某种模式运行，但只应作为过渡方案，不应在新开发的网页中使用。</p>
+
+<p><strong>IE9 兼容性视图 与 IE9 标准视图</strong></p>
+
+<p>如果你使用的是 IE9，那么按下 F12 键就会出现开发者工具，上面有两个下拉菜单：浏览器模式 和 文档模式。那么什么是浏览器模式？什么又是文档模式？二者有何区别？</p>
+
+<p>浏览器模式用于切换IE针对该网页的默认文档模式、对不同版本浏览器的条件注释解析、以及发送给网站服务器的用户代理（User-Agent）字符串的值。网站可以根据浏览器返回的不同用户代理字符串判断浏览器的版本和及安装的功能，这样就可以根据不同的浏览器返回不同的页面内容了。</p>
+
+<p>文档模式用于指定IE的页面排版引擎（Trident）以哪个版本的方式来解析并渲染网页代码。切换文档模式会导致网页被刷新，但不会更改用户代理字符串中的版本号，也不会从服务器重新下载网页。切换浏览器模式的同时，浏览器也会自动切换到相应的文档模式。</p>
+
+<p>一言以蔽之，浏览器模式会影响服务器端对客户端浏览器版本的判断，对条件注释也有影响；而文档模式会影响IE的排版引擎，对网页渲染会有影响，对 CSS hack 也会产生影响。因此，通过条件注释可以判断浏览器模式，而使用 CSS hack 可以判断文档模式。</p>
+
+<p>如果我们使用一句简单的 JavaScript 语句来查看用户代理（User-Agent）字符串的值，则可以看到 IE9 兼容性视图 与 IE9 的区别：</p>
+
+<pre><code>&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    alert(&#39;UA:&#39;+navigator.userAgent);
+&amp;lt;/script&amp;gt;</code></pre>
+
+<p>输出结果如下所示，注意其中的 MSIE 版本号已经不同。判断浏览器模式就是判断 User-Agent 中的版本号，即 MSIE 后面的数值：</p>
+<div class='highlight'><pre><code class='javascript'><span class='c1'>// IE9</span>
+<span class='nx'>UA</span><span class='o'>:</span><span class='nx'>Mozilla</span><span class='o'>/</span><span class='mf'>5.0</span> <span class='p'>(</span><span class='nx'>compatible</span><span class='p'>;</span> <span class='nx'>MSIE</span> <span class='mf'>9.0</span><span class='p'>;</span> <span class='nx'>Windows</span> <span class='nx'>NT</span> <span class='mf'>6.1</span><span class='p'>;</span> <span class='nx'>Trident</span><span class='o'>/</span><span class='mf'>5.0</span><span class='p'>;</span> <span class='nx'>SLCC2</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET</span> <span class='nx'>CLR</span> <span class='mf'>2.0</span><span class='p'>.</span><span class='mi'>50727</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET</span> <span class='nx'>CLR</span> <span class='mf'>3.5</span><span class='p'>.</span><span class='mi'>30729</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET</span> <span class='nx'>CLR</span> <span class='mf'>3.0</span><span class='p'>.</span><span class='mi'>30729</span><span class='p'>;</span> <span class='nx'>Media</span> <span class='nx'>Center</span> <span class='nx'>PC</span> <span class='mf'>6.0</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET4</span><span class='p'>.</span><span class='mi'>0</span><span class='nx'>C</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET4</span><span class='p'>.</span><span class='mi'>0</span><span class='nx'>E</span><span class='p'>;</span> <span class='nx'>Tablet</span> <span class='nx'>PC</span> <span class='mf'>2.0</span><span class='p'>)</span>
+
+<span class='c1'>// IE9 兼容性视图</span>
+<span class='nx'>UA</span><span class='o'>:</span><span class='nx'>Mozilla</span><span class='o'>/</span><span class='mf'>4.0</span> <span class='p'>(</span><span class='nx'>compatible</span><span class='p'>;</span> <span class='nx'>MSIE</span> <span class='mf'>7.0</span><span class='p'>;</span> <span class='nx'>Windows</span> <span class='nx'>NT</span> <span class='mf'>6.1</span><span class='p'>;</span> <span class='nx'>Trident</span><span class='o'>/</span><span class='mf'>5.0</span><span class='p'>;</span> <span class='nx'>SLCC2</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET</span> <span class='nx'>CLR</span> <span class='mf'>2.0</span><span class='p'>.</span><span class='mi'>50727</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET</span> <span class='nx'>CLR</span> <span class='mf'>3.5</span><span class='p'>.</span><span class='mi'>30729</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET</span> <span class='nx'>CLR</span> <span class='mf'>3.0</span><span class='p'>.</span><span class='mi'>30729</span><span class='p'>;</span> <span class='nx'>Media</span> <span class='nx'>Center</span> <span class='nx'>PC</span> <span class='mf'>6.0</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET4</span><span class='p'>.</span><span class='mi'>0</span><span class='nx'>C</span><span class='p'>;</span> <span class='p'>.</span><span class='nx'>NET4</span><span class='p'>.</span><span class='mi'>0</span><span class='nx'>E</span><span class='p'>;</span> <span class='nx'>Tablet</span> <span class='nx'>PC</span> <span class='mf'>2.0</span><span class='p'>)</span>
+</code></pre></div>
+<p>话说 IE9 兼容性视图 是模拟IE7的行为，那么 IE9 兼容性视图 与 IE7 有没有区别呢？肯定是有区别的，即使是 IE9 中的 IE7标准模式，与原生的IE7在渲染上也是有区别的，具体我们暂不去深究。</p>
+
+<p>那么既然 IE9 兼容性视图 的版本号跟 IE7 相同，如何才能判断当前是 IE9 兼容性视图，还是纯正的 IE7 呢？其实很简单，只需要判断浏览器的用户代理（User-Agent）字符串中是否包含 Trident 即可。首先检测 MSIE 的版本号是否为 7.0，然后再判断是否含有 Trident 字串，若包含则为 IE9 兼容性视图，否则则为纯正的 IE7。</p>
+
+<p><strong>小结：</strong> 至此，你应该了解了什么是浏览器模式、什么是文档模式以及它们之间的区别了，另外还了解了 IE9 兼容性视图 与 IE9 以及 IE7 的区别。</p>
+
+<p><strong>控制默认的渲染方式</strong></p>
+
+<p>当 Internet Explorer 9 遇到未包含 <code>X-UA-Compatible</code> 标头的网页时，它将使用 <code>&lt;!DOCTYPE&gt;</code> 指令来确定如何显示该网页。 如果该指令丢失或未指定基于标准的文档类型，则 Internet Explorer 9 将以 IE5 模式（怪异模式）来显示该网页。</p>
+
+<p>如果 <code>&amp;lt;!DOCTYPE&amp;gt;</code> 指令指定了基于标准的文档类型，则 Internet Explorer 9 将以 IE9 模式显示该网页，但出现以下情况时除外：</p>
+<ul>
+    <li>为该网页启用了兼容性视图。</li>
+    <li>该网页是在 Intranet 区域中加载的，并且已将 Internet Explorer 9 配置为使用兼容性视图来显示 Intranet 区域中的网页。</li>
+    <li>已将 Internet Explorer 9 配置为使用兼容性视图来显示所有网站。</li>
+    <li>已将 Internet Explorer 9 配置为使用<a href='http://msdn.microsoft.com/en-us/library/dd567845(v=VS.85).aspx' target='_blank'>兼容性视图列表（其实是个黑名单，其中指定了一组始终使用兼容性视图显示的网站）</a>。</li>
+    <li>已使用开发人员工具覆盖在该网页中指定的设置。</li>
+    <li>该网页遇到了页面布局错误，并且已将 Internet Explorer 9 配置为，通过在兼容性视图中重新打开网页来自动从此类错误中恢复。</li>
+</ul>
+<p>此外，可以使用下面的注册表项来控制 Internet Explorer 对未包含 X-UA-Compatible 标头的页面的处理方式。</p>
+
+<pre><code>HKEY_LOCAL_MACHINE (or HKEY_CURRENT_USER)
+     SOFTWARE
+          Microsoft
+               Internet Explorer
+                    Main
+                         FeatureControl
+                              FEATURE_BROWSER_EMULATION
+                                   iexplore.exe = (DWORD)</code></pre>
+
+<p>其中 <code>DWORD</code> 值必须等于下列值之一：</p>
+<table class='table' style='margin:10px 0;font-size:12px;'>
+	<tbody><tr><td>值</td><td>说明</td></tr>
+		<tr><td>7000</td><td>包含基于标准的 &lt;!DOCTYPE&gt; 指令的页面将以 IE7 模式显示。</td></tr>
+		<tr><td>8000</td><td>包含基于标准的 &lt;!DOCTYPE&gt; 指令的页面以 IE8 模式显示。</td></tr>
+		<tr><td>8888</td><td>页面始终以 IE8 模式显示，而不考虑 &lt;!DOCTYPE&gt; 指令。 （这可绕过前面列出的例外情况。）</td></tr>
+	</tbody>
+</table>
+<p>关于IE浏览器确定文档模式的整个流程，可以参看这篇文章 <a href='http://blogs.msdn.com/b/ie/archive/2010/03/02/how-ie8-determines-document-mode.aspx'>How IE8 Determines Document Mode</a>，文中详细阐述了整个流程与内部机制。</p>
+
+<p><strong>小结：</strong> 仍然坚持使用 <code>&lt;!DOCTYPE html&gt;</code>，可最大程度减小发生错误的几率。</p>
+
+<p><strong>文档模式的检测</strong></p>
+
+<p>在 JavaScript 中可以通过 <code>documentMode</code> 来检测文档模式，在 IE6 和 IE7 中是使用 <code>compatMode</code> 来确定文档模式的，这个属性自 IE8 开始已经被 <code>documentMode</code> 所替代。</p>
+
+<p>那么，如果需要兼容 IE6 和 IE7 的话（必须的 &#8230;），则相应的检测代码大致如下：</p>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>engine</span> <span class='o'>=</span> <span class='kc'>null</span><span class='p'>;</span>
+<span class='k'>if</span> <span class='p'>(</span><span class='nb'>window</span><span class='p'>.</span><span class='nx'>navigator</span><span class='p'>.</span><span class='nx'>appName</span> <span class='o'>==</span> <span class='s2'>&quot;Microsoft Internet Explorer&quot;</span><span class='p'>)</span>
+<span class='p'>{</span>
+   <span class='c1'>// This is an IE browser. What mode is the engine in?</span>
+   <span class='k'>if</span> <span class='p'>(</span><span class='nb'>document</span><span class='p'>.</span><span class='nx'>documentMode</span><span class='p'>)</span> <span class='c1'>// IE8 or later</span>
+      <span class='nx'>engine</span> <span class='o'>=</span> <span class='nb'>document</span><span class='p'>.</span><span class='nx'>documentMode</span><span class='p'>;</span>
+   <span class='k'>else</span> <span class='c1'>// IE 5-7</span>
+   <span class='p'>{</span>
+      <span class='nx'>engine</span> <span class='o'>=</span> <span class='mi'>5</span><span class='p'>;</span> <span class='c1'>// Assume quirks mode unless proven otherwise</span>
+      <span class='k'>if</span> <span class='p'>(</span><span class='nb'>document</span><span class='p'>.</span><span class='nx'>compatMode</span><span class='p'>)</span>
+      <span class='p'>{</span>
+         <span class='k'>if</span> <span class='p'>(</span><span class='nb'>document</span><span class='p'>.</span><span class='nx'>compatMode</span> <span class='o'>==</span> <span class='s2'>&quot;CSS1Compat&quot;</span><span class='p'>)</span>
+            <span class='nx'>engine</span> <span class='o'>=</span> <span class='mi'>7</span><span class='p'>;</span> <span class='c1'>// standards mode</span>
+      <span class='p'>}</span>
+      <span class='c1'>// There is no test for IE6 standards mode because that mode</span>
+      <span class='c1'>// was replaced by IE7 standards mode; there is no emulation.</span>
+   <span class='p'>}</span>
+   <span class='c1'>// the engine variable now contains the document compatibility mode.</span>
+<span class='p'>}</span>
+</code></pre></div>
+<p>IE6 和 IE7 中的 <code>compatMode</code> 有两个可能的值“CSS1Compat”和“BackCompat ”，分别对应了 IE6 和 IE7 中的标准模式和怪异模式。上面的代码首先假定是怪异模式，然后再试图推翻假设。这里没有包含“IE6 标准模式”，因为它已经被 IE7标准模式 所替代，没有模拟的情况。</p>
+
+<p>这里要注意，不同的文档模式对 JavaScript 也有<a href='http://blogs.msdn.com/b/ie/archive/2011/03/24/ie9-s-document-modes-and-javascript.aspx'>一些影响</a>，我们不必去深究不同文档模式对 JavaScript 有何种不同影响，只需要在编码时进行特定的 <a href='http://kangax.github.com/cft/'>特性检测</a> 即可。</p>
+
+<p><strong>小结：</strong> 一般情况下是没必要进行文档模式检测的，对于样式兼容我们可以写 CSS hack，而对于 JavaScript 来说，则更加推荐特性检测，而不是检测浏览器本身。</p>
+
+<p><strong>浏览器模式与文档模式之间的关系</strong></p>
+
+<p>浏览器模式可以决定页面默认的文档模式，但文档模式可能会受其他因素影响而改变，如上文所述。如果浏览器模式与文档模式设置不同的话，会不会有什么影响呢？</p>
+
+<p>我们已经知道浏览器模式主要用于标识浏览器本身，原则上不会对页面渲染产生影响。但是我们又知道，浏览器模式可以影响条件注释，所以如果你的页面中有条件注释的话，那么浏览器模式的变化就会影响到页面渲染。</p>
+
+<p>服务器端只能通过浏览器模式所标识的版本来确定客户端浏览器的版本，如果你将浏览器模式标识为IE9，但文档模式选择为IE7标准的话，就可能会有问题。不过这还要看服务器端是否有针对不同浏览器的处理策略，如果服务器端并未对不同浏览器的输出做差异化处理的话，那么这两个模式选项不同就不会有问题。</p>
+
+<p><strong>小结：</strong> 如果服务器端对不同浏览器的输出做了差异化处理，那么浏览器模式和文档模式不一致就可能产生问题。</p>
+
+<p><strong>结语</strong></p>
+
+<p>本文参考了大量现有文献，详细阐述了各种模式的区别以及它们之间的关系。相信通过上面的叙述，你已经能够区分这些浏览器模式或者文档模式以及它们之间的关系了，每节的结论在小结中已有阐述，希望能够对你有所帮助。</p>
+
+<p><strong>参考文献</strong></p>
+<p><a href='http://en.wikipedia.org/wiki/Browser_wars'>http://en.wikipedia.org/wiki/Browser_wars</a></p><p><a href='http://meyerweb.com/eric/thoughts/2008/01/24/almost-target/'>http://meyerweb.com/eric/thoughts/2008/01/24/almost-target/</a></p><p><a href='https://developer.mozilla.org/en-US/docs/Images,_Tables,_and_Mysterious_Gaps'>https://developer.mozilla.org/en-US/docs/Images,_Tables,_and_Mysterious_Gaps</a></p><p><a href='http://en.wikipedia.org/wiki/Document_Type_Declaration'>http://en.wikipedia.org/wiki/Document_Type_Declaration</a></p><p><a href='http://dev.w3.org/html5/spec/#the-doctype'>http://dev.w3.org/html5/spec/#the-doctype</a></p><p><a href='http://blogs.msdn.com/b/ie/archive/2010/03/02/how-ie8-determines-document-mode.aspx'>http://blogs.msdn.com/b/ie/archive/2010/03/02/how-ie8-determines-document-mode.aspx</a></p><p><a href='http://kangax.github.com/cft/'>http://kangax.github.com/cft/</a></p><p><a href='http://blogs.msdn.com/b/ie/archive/2011/03/24/ie9-s-document-modes-and-javascript.aspx'>http://blogs.msdn.com/b/ie/archive/2011/03/24/ie9-s-document-modes-and-javascript.aspx</a></p><p><a href='http://msdn.microsoft.com/en-us/library/cc288325(v=vs.85).aspx'>http://msdn.microsoft.com/en-us/library/cc288325(v=vs.85).aspx</a></p><p><a href='https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode'>https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode</a></p><p><a href='https://developer.mozilla.org/en-US/docs/Gecko&apos;s_Almost_Standards_Mode'>https://developer.mozilla.org/en-US/docs/Gecko's_Almost_Standards_Mode</a></p><p><a href='http://blogs.msdn.com/b/ie/archive/2009/02/16/just-the-facts-recap-of-compatibility-view.aspx'>http://blogs.msdn.com/b/ie/archive/2009/02/16/just-the-facts-recap-of-compatibility-view.aspx</a></p><p><a href='http://www.quirksmode.org/css/quirksmode.html'>http://www.quirksmode.org/css/quirksmode.html</a></p><p><a href='http://hsivonen.iki.fi/doctype/'>http://hsivonen.iki.fi/doctype/</a></p><p><a href='http://blogs.msdn.com/b/ie/archive/2011/03/24/ie9-s-document-modes-and-javascript.aspx'>http://blogs.msdn.com/b/ie/archive/2011/03/24/ie9-s-document-modes-and-javascript.aspx</a></p><p><a href='https://developer.mozilla.org/en-US/docs/Mozilla_Quirks_Mode_Behavior'>https://developer.mozilla.org/en-US/docs/Mozilla_Quirks_Mode_Behavior</a></p><p><a href='https://developer.mozilla.org/en-US/docs/Gecko&apos;s_Almost_Standards_Mode'>https://developer.mozilla.org/en-US/docs/Gecko's_Almost_Standards_Mode</a></p><p><a href='http://meyerweb.com/eric/css/tests/almost-standards.html'>http://meyerweb.com/eric/css/tests/almost-standards.html</a></p><p><a href='http://www.opera.com/docs/specs/doctype/'>http://www.opera.com/docs/specs/doctype/</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/10/17/jekyll-post-draft" title="Jekyll 中如何保存文章草稿"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/10/23/array-duplicate-removal-in-sizzle" title="Sizzle 各版本中数组去重方法 Sizzle.uniqueSort 的演变">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#Browser-ref">Browser <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#HTML5-ref">HTML5 <span>3</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

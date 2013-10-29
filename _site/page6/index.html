@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title> 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/01/24/how-to-spice-up-your-menu-with-css3" title="如何用CSS3美化菜单" rel="bookmark">如何用CSS3美化菜单</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">24 Jan 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                快速提示：为每个菜单项添加图像，并在鼠标悬停时滑出。 查看DEMO    下载源码 在这个叫做“提示与技巧”的分类中，我们会介绍一些关于Web开发和Web设计的简短有趣的方法。在今天的小提示中，我们会展示如何为菜单添加一个优美的悬停效果。主要的想法就是当鼠标悬停在菜单项时右侧滑出一个图片。 每个菜单项（在本例中是一个无序列表项）会包含一个含有两个 span 的锚点和一个图像： &amp;lt;ul class=&amp;quot;mh-menu&amp;quot;&amp;gt; &amp;lt;li&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt; &amp;lt;span&amp;gt;Art Director&amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;Henry James&amp;lt;/span&amp;gt; &amp;lt;/a&amp;gt; &amp;lt;img src=&amp;quot;images/1.jpg&amp;quot;...
+                <a href="/blog/2012/01/24/how-to-spice-up-your-menu-with-css3" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/01/21/git-the-simple-guide" title="Git超简洁教程" rel="bookmark">Git超简洁教程</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">21 Jan 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                原文链接：http://rogerdudler.github.com/git-guide/ git超简洁教程 ——只是初学者的简单教程，没有神马高深的。 安装 下载OSX平台的git：Download git for OSX 下载Windows平台的git：Download git for Windows 下载Linux平台的git：Download git for Linux 创建新分支 创建一个新目录，打开目录并执行 git init...
+                <a href="/blog/2012/01/21/git-the-simple-guide" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/01/20/html5-web-workers" title="JavaScript并行运算新机遇——WebWorkers的神奇魔法" rel="bookmark">JavaScript并行运算新机遇——WebWorkers的神奇魔法</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">20 Jan 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                原文链接：http://www.codeproject.com/KB/solution-center/HTML5-Web-Workers.aspx 很明显html5的应用是用JavaScript写的，但是跟其他的开发环境相比（例如一些原生的），JavaScript一直有个很严重的局限性：它的所有执行进程都在同一个线程里。 这对于如今像i5/i7这种动辄就8个CPU的多核处理器就有些麻烦了，即使最新的ARM手机处理器也都是双核或者4核。如果顺利的话，我们有望看到HTML5为Web开发提供一个应对这些又新又强劲的处理器的途径，让我们可以拥抱一个Web应用开发的新时代。 在没有 Workers 之前 这个JavaScript的局限性意味着一个长时间运行的进程会冻结主窗口。我们常说我们被“UI 线程”阻塞。这是由于主线程在处理所有的可视化元素及其相关任务：绘制，刷新，动画，用户输入事件等等。 我们都知道这个线程过载的严重后果：页面冻结并且用户不能再与你的应用进行交互了。当然，这时的用户体验那是相当差了，并且用户可能决定关掉这个Tab或者整个浏览器，你可能不希望看到这发生在你的app上。 为了避免发生这种情况，浏览器已经引入一种保护机制，当一个脚本有可能长时间运行时，可以对用户进行警告。 悲剧的是，这种机制并不能正确分辨究竟一段脚本是编写有问题，还是它确实需要更多的时间来完成它的工作。尽管如此，由于它阻塞了UI线程，所以还是让你知道有可能现在有错误发生的比较好。下面是一些消息的例子（从Firefox 5 和 IE9 获得）： 迄今为止，由于以下两个原因，那些问题已经很少发生了： HTML和JavaScript已经与原来的使用方式不同了，而且使用的目的也不同了，因为其他的技术可以完成多线程的任务。与本地的应用相比，网站也没有提供更丰富的体验。 2. 总有一些其他的办法可以或多或少地解决这些并发问题。 那些办法都是Web开发者所熟知的。例如，通过...
+                <a href="/blog/2012/01/20/html5-web-workers" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2011/12/29/story-of-a-song" title="歌曲《何日君再来》中的故事" rel="bookmark">歌曲《何日君再来》中的故事</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">29 Dec 2011</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                这几天看电视剧《铁面歌女》里面张娜拉反复地唱着那首经典的歌曲《何日君再来》，一直以为这首歌是邓丽君原唱，但是电影中是三十年代的大上海，不应该有邓丽君的歌呀，所以就上网查了一下，发现这首歌里还有很多的故事呢。居然是华语歌曲的经典冤案，还跟抗日扯上了关系！下面大家就来了解一下当年究竟发生了什么吧！
+
+以下内容摘自百度知道部分内容：
+
+歌曲《何日君再来》的命途多舛，也可算是华语歌曲的经典冤案。这首带有浓重探戈味道的歌曲，出生于1936年，是由创作过无数爱国抗战歌曲的作曲家刘雪庵为一部广告宣传歌舞片《三星伴月》所写，而导演方沛霖未经刘雪庵同意，就让编导黄嘉谟填写了歌词，对此刘雪庵极为不满，但碍于朋友情面未公开抗议，却为他将来的坎坷命运埋下伏笔。电影中的演唱者为周璇。
+
+1939年香港一部抗战电影《孤岛天堂》将《何日君再来》选为插曲(黎莉莉演唱)，描述青年男子参军前与女友依依不舍的情景，歌曲韵味恰到好处。此后这首歌被李香兰翻唱并收入唱片，很快就家喻户晓，所以至今许多人仍认为《何日君再来》是李香兰首唱的经典歌曲。
+
+但是，就在抗日战争的前期。日本人生怕这首歌是中国的老百姓期待中国军队反攻的一首抗日宣传歌曲，于是就将这首歌曲列为禁歌（何日“军”再来）。就在日本人在战场上节节败退的时候，小日本不甘心他们就此失败，于是便在文化上动起了歪脑筋，他们将这首歌改成了《“贺日军”再来》。很快国民政府的情报部门发现了这首歌曲。于是，蒋介石将这首歌曲也同样列为禁歌，就此这首歌曲开始了多难的命运。转眼到了文革期间，这首流传极广《何日君再来》被别有用心的人配上有政治意味的歌词，一时风行。当时更有人指这首由李香兰唱红的歌曲是刘雪庵为汉奸所作。刘雪庵就因这首移花接木的《何日君再来》被错划为右派，关进“牛棚”22年，受尽折磨导致双目失明，文革结束9年后才获平反，冤案因此产生。
+
+《何日君再来》在上世纪80年代初因邓丽君的翻唱进入大陆而再度走红，却被错误认为是“精神污染”、“汉奸歌曲”因此被禁，同样是一桩历史冤案。如今刘雪庵被平反，《何日君再来》已解禁，其中体现出的开放与包容，值得人民欢欣鼓舞，改变使人进步。
+
+但事过境迁后回头一看，《何日君再来》太过冤枉。作曲家刘雪庵创作了包括《流亡三部曲》在内的大量爱国歌曲，获得全国人民一致赞誉；演唱者黎莉莉，不仅是当时的著名影星，更是被誉为“龙潭三杰”的优秀共产党员钱壮飞的女儿；电影《孤岛天堂》更是一部以抗战为题材爱国电影，虽然《何日君再来》歌词略为轻佻，不算根正苗红，但也确实不应该被禁。
+                <a href="/blog/2011/12/29/story-of-a-song" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2011/12/29/mac-show-hidden-files-in-finder" title="Mac系统隐藏文件（Finder）的两种方法" rel="bookmark">Mac系统隐藏文件（Finder）的两种方法</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">29 Dec 2011</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                mac系统的Finder中默认是不显示隐藏文件的，搜索也搜不到。下面介绍两种显示和隐藏文件的办法。 打开终端，通过下面的两行命令可以控制是否显示隐藏文件，注意大小写： 显示Mac隐藏文件的命令： defaults write com.apple.finder AppleShowAllFiles -bool true 隐藏Mac隐藏文件的命令： defaults write com.apple.finder AppleShowAllFiles -bool false 键入相应命令后回车，然后关闭终端并重启Finder后才能生效。 另外还有一条终端命令可以直接控制文件或文件夹的显隐： 隐藏文件/文件夹命令： chflags...
+                <a href="/blog/2011/12/29/mac-show-hidden-files-in-finder" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2011/12/08/applescript-eye-sight-protect" title="AppleScript实现保护视力小程序" rel="bookmark">AppleScript实现保护视力小程序</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">08 Dec 2011</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                每天用电脑不知时光飞逝，一不小心就在电脑前坐了几个小时不动，对身体实在不好。于是laser在网上搜索类似mac下的保护视力的软件，收获不多。刚好今天了解了一下AppleScript，于是就想到用AppleScript折腾一段小代码出来。原理很简单，就是每隔45分钟弹出一个窗口，提示你该休息了，至于你到底休不休息那还得看自觉了。 代码中的各个参数不言自明，可以任意修改时间间隔，提示话语等。 另外AppleScript还有很多强大的功能，以后再慢慢发掘，我这里恐怕是大材小用了。先看看代码吧： on reminder() --time to close the dialog set closeDelay to 5 --words to say set tips to...
+                <a href="/blog/2011/12/08/applescript-eye-sight-protect" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2011/12/06/mac-quick-start-shutdown-reboot-lock" title="Mac 快速休眠关机重启锁屏" rel="bookmark">Mac 快速休眠关机重启锁屏</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">06 Dec 2011</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                mac 的几个功能键可以组合出各种快速操作，下面详细介绍：
+
+操作：Ctrl+Shift+Eject
+
+作用：关闭显示器休眠，如果在“系统偏好设置” –&gt; “安全性”中有设定进入睡眠后唤醒要输入密码，就等于是锁屏
+
+操作：Option+Command+Eject
+
+作用：让Mac直接进入睡眠状态
+
+操作：Ctrl+Option+Command+Eject
+
+作用：直接关机
+
+操作：Control+Eject
+
+作用：选择重启、睡眠、关机的对话框
+
+操作：Control+Command+Eject
+
+作用：退出所有应用程序，并重新启动计算机
+                <a href="/blog/2011/12/06/mac-quick-start-shutdown-reboot-lock" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2011/12/06/intellij-idea-could-not-show-ftp-file-list" title="Intellij IDEA配置自动同步到FTP服务器" rel="bookmark">Intellij IDEA配置自动同步到FTP服务器</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">06 Dec 2011</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                Intellij IDEA 是一款非常强大到跨平台的IDE，可以在任何主流操作系统中使用并且保证一致的操作习惯。但是这款优秀的IDE的相关中文教程却少得可怜，大部分使用者都是在慢慢摸索、互相学习才得以熟练使用。 这里laser介绍一下 FTP 服务器自动同步的配置和一些注意事项，希望能对你有所帮助。 首先前提是你已经创建了一个本地的工程，然后假设我在工程目录里新建一个文件夹叫做wordpress，我们将用它来同步我的 FTP 服务器上的文件。 打开“Tools -&gt; Deployment -&gt; Configuration…”，然后点击左上角的小加号新建一个服务器，在“Connection”页卡下填好各项参数。 填写完“FTP host”和“User name”、“Password”之后，可以选择“Test FTP connection…”测试一下设置是否正确，如果提示“Successfully connected...
+                <a href="/blog/2011/12/06/intellij-idea-could-not-show-ftp-file-list" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+
+<!-- Pagination links -->
+<div id="post-pagination" class="pagination">
+    <ul class="pages clearfix">
+        
+        <li>
+            
+            <a href="/page5">Prev</a>
+            
+        </li>
+        
+
+
+        
+        <li><a href="/page1">1</a></li>
+        
+
+        
+
+        
+        <li><a href="/page2">2</a></li>
+        
+
+        
+
+        
+        <li><a href="/page3">3</a></li>
+        
+
+        
+
+        
+        <li><a href="/page4">4</a></li>
+        
+
+        
+
+        
+        <li><a href="/page5">5</a></li>
+        
+
+        
+
+        
+        <li class="active">
+            <span class="current-page">6</span>
+        </li>
+        
+
+        
+
+        
+        <li><a href="/page7">7</a></li>
+        
+
+        
+
+        
+        <li><a href="/page8">8</a></li>
+        
+
+        
+
+        
+        <li><a href="/page7">Next</a></li>
+        
+    </ul>
+</div>
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

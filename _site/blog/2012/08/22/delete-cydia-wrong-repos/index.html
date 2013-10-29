@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>彻底删除 Cydia 中删不掉的无效源 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">彻底删除 Cydia 中删不掉的无效源</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">22 August 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>在为 Cydia 添加源时偶尔可能手误输入错误，比如 <a href='http://jiguang.github.com' title='姬光'>laser</a> 这次就是不小心把百度搜索结果的地址粘贴到里面，结果还悲剧的添加成功了。然后在点“编辑”就死活没有作用了。</p>
+
+<p>如果你也遇到这种情况，有几种解决方案可以尝试（试验机 iOS 5.1.1）：</p>
+
+<p>1，如果你点“编辑”时，错误的源可以直接删除，那你就太幸运了！</p>
+
+<p>2，使用 iFile 打开 <strong>/etc/apt/sources.list.d/</strong> 目录，找到 <strong>Cydia.list</strong>这个文件，用文本编辑器打开，编辑里面的内容，将出错的无效源删除并保存，然后打开 Cydia ，如果无效源被删除了，那你也是比较幸运的。</p>
+
+<p>3，如果上面两种都没有解决问题的话，那么就要进行如下操作了：</p>
+
+<p>* 首先，同第一步操作，将无效源删除</p>
+
+<ul>
+<li>然后到  <strong>/var/lib/apt/list/</strong> 目录中，将跟无效源有关的都删除，或者完全删除</li>
+
+<li>进到 partial 文件夹进行同样操作，注意，如果删除了 <strong>partial</strong> 文件夹可能会导致 Cydia 闪退</li>
+
+<li>最后，找到  <strong>/var/lib/cydia/metadata.plist</strong> 这个文件并删除</li>
+</ul>
+
+<p>完成这些操作以后，再打开 Cydia，应该可以看到问题已经解决了。另外，还有个专门修复错误源的软件包叫做 CyFix ，laser 没有去尝试，感兴趣的同学可以试试。</p>
+<hr />
+<p><strong>附录：常用 Cydia 中文源</strong></p>
+
+<p><strong>1、178源—号称中文第一源</strong></p>
+
+<p>源地址：apt.178.com</p>
+
+<p>包含内容：Cydia软件、铃声、字体</p>
+
+<p>支持设备：iPhone、iPad等iOS设备（不包括Apple TV）</p>
+
+<p>源管理员：丛林狼 <a href='http://weibo.com/178apt?s=6cm7D0'>微博@ta</a></p>
+
+<p>推荐理由：中文，能看懂，更新快，资料全，并且是Baidu输入法和搜狗输入法的官方镜像地址，安全性没的说，每日更新，服务器速度快，基本不会卡Cydia。不愧是成为第一中文源。</p>
+
+<p>使用小技巧：</p>
+
+<p>快捷查看清单：<a href='http://apt.178.com/applist/category/'>http://apt.178.com/applist/category/</a></p>
+
+<p>每日更新软件：<a href='http://apt.178.com/new/'>http://apt.178.com/new/</a></p>
+
+<p><strong>2、威锋源</strong></p>
+
+<p>源地址：<a href='http://apt.weiphone.com/' title='http://apt.weiphone.com/'>apt.weiphone.com/</a></p>
+
+<p>包含内容：Cydia软件、铃声、某些ipa软件的deb格式</p>
+
+<p>支持设备：iPhone、iPad等iOS设备</p>
+
+<p>管理员：weiphone管理</p>
+
+<p>推荐理由：背靠大山威锋论坛，技术支持能力很强，源内容更新速度较快，凭借强大的论坛提供的CDN加速，基本不卡Cydia，不过美中不足的是感觉比较乱，更新软件不太及时，不过依然很不错，推荐和178一起添加，有很多互补的地方。</p>
+
+<p><strong>3、Saurik源</strong></p>
+
+<p>源地址：apt.saurik.com</p>
+
+<p>包含软件：系统级Cydia软件，Cydia整个程序，Linux移植到iOS程序</p>
+
+<p>支持设备：所有iOS设备</p>
+
+<p>管理员：<a href='http://www.saurik.com/'>saurik</a></p>
+
+<p>推荐理由：没有理由，Cydia自带的源，少了还真不行，里面简直是个大宝库，各种系统级软件保证让你的iOS变成Linux服务器。</p>
+
+<p>小技巧：直接下载deb文件，请到：<a href='http://apt.saurik.com/debs/' title='http://apt.saurik.com/debs/'>http://apt.saurik.com/debs/</a>，后直接用系统自带搜索，开足马力迅雷下载。都是deb文件，直接安装。</p>
+
+<p>结余：按说这三个就够了，不过对于发烧级iOS用户肯定是不够的，所以以后会慢慢更新这个文章的，敬请关注吧。</p>
+
+<p><strong>4、hackulo源</strong></p>
+
+<p>说到这个源，大家都很陌生吧，但是我告诉你这个源的一款软件，名字叫做<a href='http://www.52cydia.com/cydia-course/www.52cydia.com/debs/55.html'>AppSync</a>，大家肯定不会陌生了吧。没错，我们装机率最高的这个cydia软件就是Hackulo这个源里开发的。与此同时这个源还有一款叫做<a href='http://cydia.hackulo.us/installous-4.3.deb'>installous</a>的软件。如果您是从iPhone 3G时代过来的，我想您一定不会陌生吧？顶级的XX软件中心，堪比现在的同步推那玩意儿，绝对是D版天堂的开山鼻祖，在国外臭名昭著，不过在国内一段时间曾是香饽饽呢。</p>
+
+<p>源地址：cydia.hackulo.us</p>
+
+<p>包含软件：<a href='http://www.52cydia.com/debs/145.html' title='AppSync 5+'>AppSync</a>、installous 、<a href='http://cydia.hackulo.us/crackulous-1.0.0.5.deb'>crackulous</a></p>
+
+<p>管理员:hackulo论坛（很大的一个外国论坛，堪比威风）</p>
+
+<p>推荐理由：曾经的龙头老大地位，必装<a href='http://www.52cydia.com/tag/patch/' title='更多有关补丁的Cydia插件'>补丁</a>源地址，资源大宝库。不过目前在国内比更加凶猛的威锋源和178源取代了位置。</p>
+
+<p>小技巧：同样开放了deb文件直接下载功能，链接到这里，您可以直接下载那些<a href='http://cydia.hackulo.us/'>deb工具</a>离线安装。</p>
+
+<p><strong>5、Dev Team源</strong></p>
+
+<p>这个不多说了吧，有锁机iPhone用户必备的cydia源，因为解锁要到这里下载ultrasn0w（中文名：超雪），这款解锁软件。用来解基带锁的。国行机用户可无视（国行无所）。</p>
+
+<p>源地址：repo666.ultrasn0w.com</p>
+
+<p>包含软件：ultrasn0w</p>
+
+<p>管理员：Dev team</p>
+
+<p>推荐理由：有锁机的最爱。</p>
+
+<p><strong>6、BigBoss源</strong></p>
+
+<p>重量级的综合型大软件源，支持cydia商店购买，都是纯正版的。</p>
+
+<p>源地址：apt.thebigboss.org/repofiles/cydia/</p>
+
+<p>包含软件：多了去了，都是正版，有各种主题，N多常用软件的官方地址。</p>
+
+<p>管理员：Bigboss论坛</p>
+
+<p>推荐理由：真正的大型软件源，cydia app的仓库，可惜是英文，不过看懂应该没问题。</p>
+
+<p><strong>7、ModMyi源</strong></p>
+
+<p>也是一个综合性的大cydia源，不过更多的是偏重于主题啊，字体啊，还有Sbsetting的主题等等，应该是文艺青年的最爱。</p>
+
+<p>源地址：apt.modmyi.com</p>
+
+<p>包含软件：多种多样，主题，美化，铃声为主</p>
+
+<p>管理员：ModMyi</p>
+
+<p>推荐理由：花样多，内容丰富，不过要注意了，收费软件极多，国外很注重版权的。也同时提醒国人并不是cydia软件都是免费的，他们也是有版权的。使用需购买。</p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/08/21/ember-js-doc-cn" title="Ember.js 中文文档"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/08/27/mountain-lion-git-fix" title="Mountain Lion 中 Git “Command Not Found” 错误的解决办法">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#iOS-ref">iOS <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#iPhone-ref">iPhone <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

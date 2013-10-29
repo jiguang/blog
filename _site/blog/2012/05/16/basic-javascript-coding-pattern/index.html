@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>JavaScript基本编码模式 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">JavaScript基本编码模式</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">16 May 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>无论编写任何程序都会接触到编码风格，设计模式等概念，编码风格一般侧重于书写规范，而设计模式则偏向于程序架构设计。本文中<a href='http://jiguang.github.com' title='笔者'>笔者</a>整理的这些“模式”包含了编写JavaScript代码时一些常用的方法或者小技巧，可以帮助初学JavaScript的同学迅速提升代码质量。当然，在此之前首先要保证规范的书写习惯，在此之上可以再将本文介绍的知识点运用到代码编写中，则可以大大提升代码质量。</p>
+
+<p>下面是<a href='http://jiguang.github.com' title='笔者'>笔者</a>整理的一些点，没有什么逻辑顺序，想到哪儿写到哪儿了，不足之处欢迎大家补充指正。</p>
+
+<p>1. 变量定义</p>
+
+<pre><code>// 一般写法
+var a = 0;
+var b = 1;
+var c = &#39;xxx&#39;;
+
+// 推荐写法
+var a = 0,
+    b = 1,
+    c = &#39;xxx&#39;;</code></pre>
+
+<p>2. 尽量使用字面量</p>
+
+<pre><code>// 一般写法
+var obj = new Object();
+        obj.a = &#39;aa&#39;;
+        obj.b = &#39;bb&#39;;
+        obj.c = &#39;cc&#39;;
+
+var arr = new Array();
+
+// 推荐写法
+var obj = {
+        a: &#39;aa&#39;,
+        b: &#39;bb&#39;
+    };
+
+var arr = [];
+
+function getXX(index){
+    return [&#39;aa&#39;, &#39;bb&#39;, &#39;xx&#39;, 55, &#39;xxb&#39;](index);
+}
+
+function getMessage(code){
+    return {
+        404: &#39;xxx&#39;,
+        500: &#39;xxx&#39;
+    }[code];
+}</code></pre>
+
+<p>3. 正则字面量</p>
+
+<pre><code>var regex = new RegExp(&#39;someting&#39;);
+
+// 当正则表达式可能变化时才使用构造函数
+var cls = &#39;someclass&#39;,
+    regex = new RegExp(cls + &#39;\\s*&#39;, &#39;ig&#39;);   // only for dynamic regexs
+
+// 其他情况均使用字面量
+var regex = /someting/ig;</code></pre>
+
+<p>4. 设置默认值</p>
+
+<pre><code>// Default values
+var arg = arg || &#39;default&#39;;  // fallback
+
+document.getElementById(&#39;test&#39;).onclick = function(event){
+    var event = event || window.event;
+};
+
+function getX(a){
+    return a+1 || &#39;default&#39;;
+}</code></pre>
+
+<p>5. 条件判断</p>
+
+<pre><code>// Conditions
+answer = obj &amp;#038;&amp;#038; obj.xx &amp;#038;&amp;#038; obj.xx.xxx;
+
+// 连续判断
+if(obj &amp;#038;&amp;#038; obj.xx &amp;#038;&amp;#038; obj.xx.xxx){
+    // do something
+}
+
+if(obj.xx){
+    // do something
+}
+
+if(!obj){
+    // do something
+}
+
+// 使用全等判断
+if(a === b){
+    // do something
+}
+
+// 尽量不检测浏览器，仅检测要使用的特性是否支持
+if(document.getElementById){
+    // ability detect
+}</code></pre>
+
+<p>6. 三元操作符</p>
+
+<pre><code>// Ternary
+check ? value1 : value2;
+
+// 三元操作符更简洁
+var foo = (condition) ? value1 : value2;
+
+function xx(){
+    if(condition){
+        return value1;
+    }else{
+        return value2;
+    }
+}
+
+function xx(){
+    return (condition) ? value1 : value2;
+}
+
+// 格式化三元操作符
+foo = predicate ? &quot;one&quot; :
+      predicate ? &quot;two&quot; :
+                  &quot;default&quot;;   // format</code></pre>
+
+<p>7. 插入迭代值</p>
+
+<pre><code>// Insert iteration
+var name = value[i];
+    i++;
+
+// 直接将迭代值插入
+var name = value[i++];</code></pre>
+
+<ol>
+<li>
+<p>DOM操作</p>
+
+<p>// DOM Operation el.style.display = &#8216;none&#8217;; // offline // operation el.style.display = &#8216;block&#8217;;</p>
+
+<p>// 使用文档碎片操作更好 var fragment = document.createDocumentFragment(); // better</p>
+
+<p>el.innerHTML = &#8221;; // fast remove all children, but may leaks memory el.innerHTML = &#8216;xxx&#8217;; // ok, use it!</p>
+
+<p>// 小心处理NodeList var images = document.getElementsByTagName(&#8216;img&#8217;); // be careful! dynamic list</p>
+</li>
+</ol>
+
+<p>9. 事件代理</p>
+
+<pre><code>// 使用事件代理，在更外层的元素上监听事件
+document.getElementById(&#39;list&#39;).onclick = function(evt){
+    var evt = evt || window.event,
+        target = evt.target || evt.srcElement;
+
+    if(target.id === &#39;btn1&#39;){
+        // do something
+    }
+}</code></pre>
+
+<p>10. 命名空间</p>
+
+<pre><code>// An Object as a Namespace
+var MYAPP = {};
+    MYAPP.dom.get = function(id){};
+    MYAPP.style.css = function(el, style){};
+
+MYAPP.namespace(&#39;event&#39;);</code></pre>
+
+<p>11. 链式操作</p>
+
+<pre><code>// Chaining operation: return this
+function setValue(el, value){
+    el.value = value;
+    return this;
+}
+
+var obj = new MYAPP.dom.Element(&#39;span&#39;);
+    obj.setText(&#39;hello&#39;)
+    .setStyle(&#39;color&#39;, &#39;red&#39;)
+    .setStyle(&#39;font&#39;, &#39;Verdana&#39;);</code></pre>
+
+<p>12. 私有作用域</p>
+
+<pre><code>// Function
+(function(){
+    var _private = &#39;cant see me&#39;;
+
+})();
+
+(function($){
+     $(&#39;#xxb&#39;).click(function(){ });
+})(jQuery);</code></pre>
+
+<p>13. 配置对象</p>
+
+<pre><code>// Configure Object
+function foo(id, conf, null , null){
+    // do somethin
+}
+
+foo(&#39;bar&#39;, {
+    key1 : 1,
+    key2 : 2
+});</code></pre>
+
+<p>14. 类型转换</p>
+
+<pre><code>// Type Conversion
++&#39;010&#39; === 10;
+Number(&#39;010&#39;) === 10;
+parseInt(&#39;010&#39;, 10) === 10;
+10 + &#39;&#39; === &#39;10&#39;;
+
++new Date() // timestamp
++new Date;</code></pre>
+
+<p>15. 扩展原型</p>
+
+<pre><code>// 仅在需要向前兼容时才使用，其他情况不建议扩展原型对象
+Array.prototype.forEach = function(){
+    // only for forward compatible
+};</code></pre>
+
+<p>16. 循环优化</p>
+
+<pre><code>// 缓存
+for(var i=0, j = document.getElementsByTagName(&#39;a&#39;).length; i&lt;j; i++){
+    // always cache
+}
+
+// 变量提升
+var i = 0, j = xx.length;
+for(; i&lt;j; i++){
+    // hoisting
+}
+
+// 始终检测是否自有属性，避免不必要的原型链查找
+for(var i in foo){
+    if(foo.hasOwnProperty(i)){
+        console.log(i);  // avoid prototype chain searching
+    }
+}
+
+// 如果不在乎顺序，可采用逆序循环
+for(var i=xx.length; i&gt;0; i--){
+    // maybe faster
+}
+
+// 据说是最快的
+while(i--){
+    // maybe fastest
+}</code></pre>
+
+<p>17. 尽量使用新特新</p>
+
+<pre><code>Array.forEach();
+getElementsByClassName();
+querySlectorAll();
+
+// 首先检测是否支持新特性，能用就用
+if(document.getElementsByClassName){
+    // use
+}else{
+    // your implementations
+}</code></pre>
+
+<p>18. 惰性载入</p>
+
+<pre><code>// 只判断一次，再次调用该函数则无需判断
+function lazyDef(){
+    if(condition1){
+        lazyDef = function(){ };
+    }else if(condition2){
+        lazyDef = function(){ };
+    }
+    return lazyDef();
+}</code></pre>
+
+<p>19. 私有函数与公共方法</p>
+
+<pre><code>var MYAPP = {};
+
+MYAPP.dom = (function(){
+    var _setStyle = function(el, prop, value){
+        console.log(&#39;setStyle&#39;);
+    };
+
+    return {
+        setStyle: _setStyle
+    };
+})();
+
+// 当 MYAPP.dom.setStyle 不慎被覆写时，_setStyle在内部仍然可用</code></pre>
+
+<p>20. 调试</p>
+
+<pre><code>// 尽量使用，可以传入多个参数，最后输出拼接后的字符串
+console.log(&#39;xx&#39;,&#39;xx&#39;,&#39;...&#39;);
+console.dir(someObj);
+console.dirxml(someDom);
+console.time(&#39;timer&#39;);
+console.warn(&#39;xxx&#39;);
+
+// 封装可以保证不小心发布出去也不会导致问题，但报错时行号可能有问题
+function msg(msg){
+    if(console &amp;#038;&amp;#038; console.log){
+        console.log(msg);   // wrong line number
+    }
+}</code></pre>
+
+<p>基本上目前想到的只有这些，欢迎大家补充讨论：）</p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/05/04/amazon-reviews-for-smashing-css" title="好书短评之《精彩绝伦的CSS》"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/05/29/minimum-demo-test-code" title="最小化DEMO测试代码">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

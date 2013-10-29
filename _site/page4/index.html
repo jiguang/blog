@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title> 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/04/08/smashing-css-sample-chapter2" title="【TEAP早期试读】Firebug快速入门教程" rel="bookmark">【TEAP早期试读】Firebug快速入门教程</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">08 Apr 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                图灵社区按： TEAP是什么？TEAP是Turingbook Early Access Program的简称，即早期试读，它公布的是图灵在途新书未经编辑的内容。一本书的翻译周期约为3到6个月，如果在翻译过程中，译者就能与读者进行沟通和交流，对整本书的翻译品质是有帮助的。通过TEAP，读者可以提前阅读将来才能出版的内容，译者也能收获宝贵的反馈意见，改进翻译，提高质量。 简介：本书原名为 Smashing CSS，中文暂定名为《精彩绝伦的CSS》，本文节选自书中第一章。 作者： Eric A. Meyer 从1993年开始就投身于web开发领域，是HTML、CSS和Web标准方向国际上公认的专家。他是复杂螺旋顾问公司（Complex Spiral Consulting）的创始人，该公司为美国在线（America On-Line）、苹果（Apple）、奥多比（Adobe）、微软（Microsoft）、前进保险（Progressive Insurance），宣威-威廉斯（Sherwin-Williams）等许多公司提供咨询服务。他是微格式（micro- formats）运动的联合发起者，并且是An Event Apart网站开发者系列会议的联合创办人（和Jeffrey...
+                <a href="/blog/2012/04/08/smashing-css-sample-chapter2" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/04/07/smashing-css-sample-chapter" title="Eric Meyer 新作《Smashing CSS》中文版样章试读" rel="bookmark">Eric Meyer 新作《Smashing CSS》中文版样章试读</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">07 Apr 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                畅销图书《Smashing CSS: Professional Techniques for Modern Layout》是 Eric Meyer 的又一大作，该书已在亚马逊获得4星评价，事实已经证明这必定又是一本经典好书。 英文版封面 英文版内页 之前笔者写过一篇《【TEAP早期试读】Firebug快速入门教程》其实就是从该书中文版的第一章中截取的。《Smashing CSS》的中文版暂名为《精彩绝伦的CSS》，由人民邮电出版社图灵公司引进，预计在8月份左右出版。 目前该书的样章已经发布，大家可以先下载样章一睹大师风采，不过样章中主要还是讲述前端开发中一些常用的工具，大部分内容都是我们熟知的，可能并不会有许多新鲜感。不过对于一些初学者，还是可以仔细读一读的。 样章主要包含以下内容： 1 FIREBUG 2 WEB...
+                <a href="/blog/2012/04/07/smashing-css-sample-chapter" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/04/07/evernote-clearly" title="拒绝纷扰，静心阅读 —— Evernote Clearly" rel="bookmark">拒绝纷扰，静心阅读 —— Evernote Clearly</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">07 Apr 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                你是否曾被网站上纷繁复杂的栏目、乌七八糟的广告弄的心烦意乱？你是否在读文章时被诱骗点击了广告？我们的精力有限，视力有限，请还我们一个清静的世界吧！吐槽完毕。 Evernote Clearly 是鼎鼎大名的 Evernote 开发的一个 Chrome 浏览器插件，它的功能很简单，就是去除网页上的“闲杂人等”，集中显示主要内容。在我们阅读文章时，往往页面上有许多其他栏目，或者广告，甚至还有很多闪来闪去、上窜下跳的广告影响我们的注意力。长时间下去就会得一种慢性疾病，即永远无法集中注意力。 下面笔者就简单介绍一下这个插件，下面是官方网站上的示意图： 它的功能主要包括提取文章的主要内容、剪贴到Evernote等，还可以自定义主题。其中“剪贴到Evernote”的功能也可以当作“稍后阅读（Read it later）”来使用，在电脑上没有时间阅读时，将文章内容保存到Evernote，然后其他时间在移动设备上阅读。它比其他类似的“Read it later”插件更好的地方就是，它提取了文章主要内容，而不是仅仅保存一个网站链接，这样可以节省很多移动设备的网络流量。 下面笔者对两种不同类型的网站进行了简单的测试，一个为门户网站的文章页，一个为个人博客的文章页。 以网易新闻为例，在使用Evernote Clearly之前时，页面是酱紫的： 在打开Evernote Clearly后则变成了： 我们可以很明显地看到，其他我们无需关注的东西都已经去掉了，可以静心读一读文章了。当然，很多时候都是粗略的浏览，可能就不需要这样了。文字的颜色及背景等都是可以自定义的。...
+                <a href="/blog/2012/04/07/evernote-clearly" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/26/how-can-you-program-if-youre-blind" title="盲人程序员的编程生涯" rel="bookmark">盲人程序员的编程生涯</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">26 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                本文来自于Stackoverflow上的一个问题，下面确实有很多盲人程序员作出回答，笔者感触颇深，故整理成文。 具体技术细节不必深究，主要了解一下他们的工作状态，以期让更多的朋友关注残障人士的生活与工作。 原问题大致如下： 视力应是大多数程序员理所当然应有的感官之一，大多数程序员都会花大量的时间盯着显示器（尤其是当他们处于巅峰状态时），不过我知道还存在很多的盲人程序员（比如目前供职于Google的T.V. Raman）。 如果你是个盲人（或者视力衰退严重），那么你会怎样设置你的开发环境来协助你编程呢？ 下面整理一些精彩回答： From Jared： 我是一个完全失明的大学生，已经参加过几个编程实习，所以我的回答将基于这些经验。我使用Windows xp作为操作系统，使用Jaws的合成语音来阅读屏幕上的内容。对于Java编程，我使用eclipse，因为它是一个全功能可访问的IDE。 以我的经验来看，java编程中使用SWT作为GUI工具的可访问性要比使用Swing好一些，这就是为什么我放弃netbeans的原因。对于.net编程，我使用visual studio 2005，因为这是我实习时使用的标准版本，而且通过使用Jaws和一系列脚本（比如简化表单设计的脚本），可以使操作变得非常简单。 对于C和C++编程，我使用cygwin加上gcc作为编译器，使用emacs或者vim作为编辑器，视具体工作而定。我的大部分实习涉及到Z/OS的编程，我使用一个登录会话来通过Cygwin来访问USS子系统，并且使用C3270作为我的3270模拟器来访问主框架的ISPF部分。 我一般依赖于带点字（Braille：点字/盲文）显示（译者注：下图为一种点字设备）的合成语音。我发现在标点很重要且比较复杂的情况下使用点字显示的话，工作效率会更高。一个例子就是当有很多if声明很许多嵌套的括号和JCL时，标点就显得非常重要了。 更新 我在玩cygwin下的Emacspeak http://emacspeak.sourceforge.net，我不确定这个作为编程使用的编辑器是否有用，因为它有时好像反应迟钝，不过我还没有查看任何配置选项。 From...
+                <a href="/blog/2012/03/26/how-can-you-program-if-youre-blind" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/24/css3-sandglass" title="CSS3实现倒计时沙漏" rel="bookmark">CSS3实现倒计时沙漏</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">24 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                这是一个css3实现的小沙漏，没什么实际意义，就是玩一玩，用到了CSS3的两个属性：transform 和 transition。为了简单起见，代码中没有把带所有浏览器前缀的代码都写出来，只写了-webkit-的。 先看一下效果图： 查看DEMO 下面是具体代码，没什么难度： &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;CSS3 Sandglass&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; ## CSS3 10秒倒计时沙漏 - Webkit only...
+                <a href="/blog/2012/03/24/css3-sandglass" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/23/mac-protect-eyesight-software" title="Mac下定时休息/保护视力/防劳损软件" rel="bookmark">Mac下定时休息/保护视力/防劳损软件</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">23 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                每天对着电脑工作的人都会需要一个定时提醒的软件，可以提醒你定时休息，防止各种职业病。
+
+在Windows上有很多类似的软件，但是在mac系统中却很少。笔者也曾苦苦搜寻，始终没有找到合适的。
+
+之前我曾写过用AppleScript实现的定时提醒脚本，但功能实在太弱，连Toy都算不上。
+
+前些日子偶然发现一款非常好用的软件，叫做TimeOut，它有很多强大的功能，比如筛选在某些程序打开时不计时，以及开始或结束时执行脚本等。下面是软件的截图：
+
+
+
+在官方网站上，还有一些有趣的脚本可供下载。
+
+自从我发现这个软件后，就一直在使用，我一般设置工作50分钟然后休息10分钟，当然完全是个人喜好。不过一般据说工作45-50分钟就休息一下比较科学。
+
+点击直接下载，如果下载链接变更失效，那么可以到官方下载页面，点击右侧“Download Now”下载。
+                <a href="/blog/2012/03/23/mac-protect-eyesight-software" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/22/use-alias-minify-input" title="使用别名alias简化输入" rel="bookmark">使用别名alias简化输入</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">22 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                在Linux/mac等终端输入命令时经常要输入很多字符，如果每次都手动输入的话效率很低，这时可以使用alias命令为常用的命令设置别名。 网上有很多类似的教程，具体修改方法不一，其原因是按照不同的修改方法修改后覆盖的范围不同。 如果单次使用（在终端不关闭的情况下），可以直接在终端输入： alias ［alias-name=’original-command’］ 其中 alias-name 是你希望取的别名，而 original-command 是原始的命令及参数，注意等号的两端不能有空格。 例如，如果经常需要输入： $ cd /usr/X11/lib/X11 的话，那么可以在bash提示符下输入： $ alias goconfig=’cd /usr/X11/lib/X11’ 然后在执行...
+                <a href="/blog/2012/03/22/use-alias-minify-input" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/22/firefoxs-buttons-wider-than-ie-or-chrome-safari" title="FireFox的按钮比IE和Chrome/Safari宽的解决办法" rel="bookmark">FireFox的按钮比IE和Chrome/Safari宽的解决办法</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">22 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                我讨厌浪费大好的时光编写样式，下面有个很好的例子可以佐证我的想法： Firefox中的按钮（button）比IE或者Webkit的都宽，为啥？这个小点缀其实藏在浏览器的样式中： button::-moz-focus-inner, input[type=&quot;reset&quot;]::-moz-focus-inner, input[type=&quot;button&quot;]::-moz-focus-inner, input[type=&quot;submit&quot;]::-moz-focus-inner, input[type=&quot;file&quot;] &gt; input[type=&quot;button&quot;]::-moz-focus-inner { padding: 0px 2px 0px 2px; } 是的，确实宽了4像素。多谢Firefox。 很幸运，我们可以把它修复！ button::-moz-focus-inner, input[type=&quot;reset&quot;]::-moz-focus-inner,...
+                <a href="/blog/2012/03/22/firefoxs-buttons-wider-than-ie-or-chrome-safari" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+
+<!-- Pagination links -->
+<div id="post-pagination" class="pagination">
+    <ul class="pages clearfix">
+        
+        <li>
+            
+            <a href="/page3">Prev</a>
+            
+        </li>
+        
+
+
+        
+        <li><a href="/page1">1</a></li>
+        
+
+        
+
+        
+        <li><a href="/page2">2</a></li>
+        
+
+        
+
+        
+        <li><a href="/page3">3</a></li>
+        
+
+        
+
+        
+        <li class="active">
+            <span class="current-page">4</span>
+        </li>
+        
+
+        
+
+        
+        <li><a href="/page5">5</a></li>
+        
+
+        
+
+        
+        <li><a href="/page6">6</a></li>
+        
+
+        
+
+        
+        <li><a href="/page7">7</a></li>
+        
+
+        
+
+        
+        <li><a href="/page8">8</a></li>
+        
+
+        
+
+        
+        <li><a href="/page5">Next</a></li>
+        
+    </ul>
+</div>
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

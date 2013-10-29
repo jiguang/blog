@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title> 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/21/mac-thunder-download-messy-code" title="Mac迅雷下载后文件名乱码删除显示8072权限错误" rel="bookmark">Mac迅雷下载后文件名乱码删除显示8072权限错误</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">21 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                我是windows用户转向mac的，所以很多软件还喜欢使用Windows上发家的，另外也算支持一下国货吧。Mac迅雷总体来说还不错，只是下载中文文件的时候经常会出现乱码。如果幸运的话，可以直接对文件重命名，不过大部分情况下你会遇到无法重命名、无法删除、无法打开、权限错误等等尴尬问题，一般显示为8072错误。 下面就介绍一点我的经验： 首先要从源头入手，在新建任务时，不要完全使用默认设置直接下载。在新建任务的弹出框内，将文件名的中文部分使用 Command+X 剪切到剪贴板（迅雷这个输入框居然支持Windows的剪切操作！），然后再用 Command+V 粘贴回去，这样就悄悄地将中文的编码改为系统可以识别的了，继续下载就不会有问题了。 这里选择“继续”，不要选择“直接下载” 对于中文部分，Command+X + Command+V 那么，对于不小心已经下载到本地的文件该如何处理呢？根据笔者实践，大致有以下三种方法可以实现，难度依次增大： 1，如果下载的文件在某个不太重要的文件夹中，如“小电影”文件夹，那么可以尝试把该文件夹中其他文件移走，然后从上一级删除此文件夹； 2，如果第一招不管用，打开“终端（Terminal）”（不知道终端是什么？Control+空格，输入Terminal，回车），然后输入 rm -rf （注意-rf前后各有一个空格），然后将文件名乱码的文件拖拽到终端中，再敲回车。幸运的话，该死的乱码文件应该已经删除了。 3，如果前两个都不好使的话，还有最后大绝招！可以安装一个虚拟机（或者恰好你安装了双系统），然后在Windows系统中将文件重命名或者删除。这个操作起来就比较复杂了，可以搜一下虚拟机安装的教程，或者你认识某个像我一样苦逼的程序员也可以，或者干脆把文件扔在那里吧。 4，还有一个方法比装虚拟机还耗时，但基本不需要思考。可以在 设置-实用工具...
+                <a href="/blog/2012/03/21/mac-thunder-download-messy-code" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/20/about-youth-and-life" title="青春与生命" rel="bookmark">青春与生命</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">20 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                每个人都曾有过青春，也都会在生命的某个阶段，开始缅怀自己逝去的青春，我当然也不能免俗。 有人说，一旦你开始回忆过去，你就老了。当那些数不清的欢笑与泪水、思念与重逢都渐渐远去的时候，还有什么能够祭奠我们的青春？ 我不善言辞，亦不愿强说忧愁。因为这微小的声音只有你自己能够听到，只有你自己能够听到。 或许在世界的某个角落，某个像我一样渺小的个体，可以感受到我的存在。 像我这把年纪的人，才刚刚依依不舍地向青春挥手，似乎有点儿晚了。但无论你再怎么不舍，也都会被撕扯着长大、衰老、死亡。 那么，既然最后的归宿都是那一尺黑匣，生命的意义何在？ 我为什么活着？我打赌很多人都曾问过自己，那么，你得到答案了吗？ 我想，可能很多人的一生都在想这个问题，一直到死。 那些轻生的人，并不是想不开，而是累了，不想再去想这个恼人的问题了。 那么那些自杀未遂的人，又为何会活得更加开心、更加生机勃勃？难道上帝告诉他们答案了吗？当然不是！ 当“死而复生”睁眼的一瞬间，你才会发现这个世界有多么美好，你有多么地不舍。 你突然发现，身边的朋友亲人都那么和蔼可亲，甚至一草一木都那样赏心悦目，原来为何视而不见呢？ 与失去生命相比，还有什么值得我们斤斤计较呢？ 那么同理，当我们容颜渐老，意识模糊之时，便能想到声明的意义何在么？我想是的！为什么？ 因为你的生命已燃至尽头，回想你此生所经历的人和事，总能找到那么一点意义所在。 “我这辈子值了！”真的吗？如果在你垂危的时刻，当你说出这句话时，却有人反问“真的吗？”，你能瞑目吗？ 再拿出这个老掉牙的问题：如果你只有三天的生命，你会做什么？ 我想对于这个问题，一般会有两种反应：第一种：“真他妈晦气，想这干啥？！”；第二种：“那得看为啥剩三天，我身体如何、我有没有钱…”。 必定很少有人能够认真对待这个问题。 那么我们缓刑一下，假设2012年真的是世界末日，那么还有8个多月的时间，你想做些什么？造船？...
+                <a href="/blog/2012/03/20/about-youth-and-life" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/03/12/negative-proximity" title="消极接近（Negative Proximity）" rel="bookmark">消极接近（Negative Proximity）</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">12 Mar 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                CSS的后代选择器有个很细微的特性可能很多人都不曾注意到，因为它很少出现：该选择器没有元素接近（element proximity）的概念。下面是关于这个原则的一个经典范例： body h1 {color: red;} html h1 {color: green;} 给定这样的样式后，所有的h1将会是绿色而不是红色。这是因为两个选择器具有相同的特殊性（specificity），因此最后一个获胜。而body元素在文档中比html元素更接近h1的事实完全被忽略了。CSS没有衡量文档树中元素接近程度的机制，如果让我打赌的话，我会赌永远都不会有这种机制。 我之所以提起这个是因为，当使用否定伪类（negation pseudo-class）时它可能会给你带来麻烦。考虑下面的代码： div:not(.one) p {font-weight: bold;} div.one p {font-weight:...
+                <a href="/blog/2012/03/12/negative-proximity" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/02/11/the-performance-golden-rule" title="性能黄金法则" rel="bookmark">性能黄金法则</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">11 Feb 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                原文地址：http://www.stevesouders.com/blog/2012/02/10/the-performance-golden-rule/
+
+昨天我在Google Ventures为他们的一些投资公司做了个研讨会。我不知道听众会有多少关于性能优化的背景知识，因此我从2007年的第一个演示开始，回顾了几乎跟性能优化相关的所有内容，真的是很怀旧啊。话说距离我开始谈论《高性能网站建设指南》的最佳实践已经很多年了，我重新审视了这些早期的提示，比如减少HTTP请求，和添加Expires头，还有压缩组件。
+
+不过我还需要回顾得更远一些，想到在还没有Velocity和WPO之前，我或许还得澄清一下为什么我会如此关注前端性能。我找到了当时包含性能黄金法则的幻灯片：
+
+
+80-90%的最终用户响应时间都花在前端上。从这里开始。
+
+
+还有一些其他相关的幻灯片展示了一些流行的网站分别花在后端和前端的时间，但是数据已经很旧并且很有限了，因此我决定更新一下，下面是我的成果。
+
+首先是一个瀑布图，它展示了前后端的划分。这个瀑布图是LinkedIn的。这里“后端”的时间是指从服务器返回第一个字节到客户端所花费的时间。它通常包含大部分的后端处理：数据库查询、远程web服务调用、拼接HTML等等。其余的是“前端”的时间，它包含了显而易见的前端阶段，诸如执行JavaScript代码以及渲染页面等。它同时也包含了下载页面上所有相关资源的时间。我把这些划分到前端时间里是因为，有许多切实可行的办法可以减少这个时间，比如 异步加载脚本，合并脚本和样式表以及域名分散（即通过多个域名实现并行下载的策略  ——译者注）等。
+
+
+
+对于排名前十位的网站分析结果显示，平均在前端花费的时间占比为76%，略低于黄金法则中提出的80-90%的值。不过别忘了，这些网站的前端都经过了高度的优化，并且其中两个是载入资源非常少的搜索页面（而不是结果页面）。
+
+
+
+对于排名10000左右的10个网站进行的分析，可以得到一个更典型的视图。平均在前端花费的时间占比为92%，高于排名前10的76%，甚至高于黄金法则中建议的80-90%。
+
+
+
+为了使与会者接受这个法则，我展示了他们自己网站的前后端花费时间占比，得到的结果为前端占比84%。这有助于使他们的认可我的理论，即前端的性能才是最难最有挑战的，也是最应该给予关注的。
+
+
+
+后来我想起来我在HTTP Archive上还有关于网站耗时的信息。不过我一般不展示这些信息，因为我认为真正的用户度量应该更准确一些，不过我计算了被抓取到的50000个网站的前后端耗时占比，结果前端占比为87%。
+
+
+
+能够获取这些比2007年更新的信息来验证性能黄金法则真是太好了，而且它也显示了前端性能优化越来越受重视了。如果你担心可用性和可扩展性，那就关注一下后端。但是如果你担心载入网站时用户等待的时间太久，那么关注前端才是王道。
+                <a href="/blog/2012/02/11/the-performance-golden-rule" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/02/10/learning-javascript-with-object-graphs-part2" title="通过对象图学习JavaScript 【之二】" rel="bookmark">通过对象图学习JavaScript 【之二】</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">10 Feb 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                由于我的第一篇文章里通过图解描述JavaScript语义的方式大受欢迎，因此我决定尝试用这种方法来讲解一些高级内容。在本文中，我会讲解三种常用的创建对象的技术，它们分别是：构造器（constructor）加原型（prototype）的方式、纯原型的方式以及对象工厂（object factory）的方式。 我的目的是希望能够帮助大家理解每种技术的优缺点，并理解其运行机理。 经典的JavaScript构造器 首先我们通过原型来创建一个简单的构造器。这是在原生的JavaScript中最接近类（class）的一种方式。它非常强大而有效，但是我们并不能奢望它像其他包含类的语言一样强大。 //长方形 function Rectangle(width, height) { this.width = width; this.height = height; } Rectangle.prototype.getArea = function...
+                <a href="/blog/2012/02/10/learning-javascript-with-object-graphs-part2" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/02/09/smashing-css-firebug-quick-tutorial" title="【TEAP早期试读】Firebug快速入门教程" rel="bookmark">【TEAP早期试读】Firebug快速入门教程</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">09 Feb 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                图灵社区按：TEAP是什么？TEAP是Turingbook Early Access Program的简称，即早期试读，它公布的是图灵在途新书未经编辑的内容。一本书的翻译周期约为3到6个月，如果在翻译过程中，译者就能与读者进行沟通和交流，对整本书的翻译品质是有帮助的。通过TEAP，读者可以提前阅读将来才能出版的内容，译者也能收获宝贵的反馈意见，改进翻译，提高质量。 书名：本书原名为Smashing CSS，中文暂定名为《精彩绝伦的CSS》 作者名/简介： Eric A. Meyer从1993年开始就投身于web开发领域，是HTML、CSS和Web标准方向国际上公认的专家。他是复杂螺旋顾问公司（Complex Spiral Consulting）的创始人，该公司为美国在线（America On-Line）、苹果（Apple）、奥多比（Adobe）、微软（Microsoft）、前进保险（Progressive Insurance），宣威-威廉斯（Sherwin-Williams）等许多公司提供咨询服务。他是微格式（micro- formats）运动的联合发起者，并且是An Event Apart网站开发者系列会议的联合创办人（和Jeffrey Zeldman一起），他还是5本最畅销的CSS和网页设计书籍的作者。 无论做什么事情，工具都能起到很大的辅助作用，创建网页或者应用亦是如此。对于CSS来说，既有可以帮助我们书写CSS的工具，也有使用CSS构建的工具来辅助我们进行开发。甚至有的工具可以使我们的浏览器支持更多原生并不支持的CSS特性，你不仅是开发者，还是个能工巧匠！相信本章介绍的这些工具绝对会撑爆你的工具箱。 FIREBUG...
+                <a href="/blog/2012/02/09/smashing-css-firebug-quick-tutorial" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/02/06/learning-javascript-with-object-graphs" title="通过对象图学习JavaScript [之一]" rel="bookmark">通过对象图学习JavaScript [之一]</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">06 Feb 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                成为一个高效的JavaScript开发者的秘诀之一就是真正理解这门语言的语义。本文将会通过通俗易懂的图表来解释JavaScript中最基本的核心内容。 随处可见的引用 JavaScript中的变量其实一个标签，它引用了内存中某个位置的一个值。这些值可以是字符串、数字和布尔值的原始值。它们也可以是对象（object）或函数（function）。 本地变量 在下面这个例子中，我们会在顶级作用域中创建四个本地变量，并将它们指向某个原始值。 // 我们在顶层作用域创建一些本地变量 var name = &quot;Tim Caswell&quot;; var age = 28; var isProgrammer = true;...
+                <a href="/blog/2012/02/06/learning-javascript-with-object-graphs" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="/blog/2012/02/04/firefox-10-web-developer-tool" title="Firefox 10内置的Web开发者工具" rel="bookmark">Firefox 10内置的Web开发者工具</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">04 Feb 2012</a></li>
+            <li class="post-author">Posted by <a href="http://www.44ux.com" title="Posts by JiGuang" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>
+                在刚刚发布的Firefox 10中新增了多个内置的Web开发工具，可以说目前来看基本都是鸡肋。对于习惯了Firebug的开发者来说，Firefox的这些工具简直太小儿科了！不过不能因为开始很鸡肋，就对它不理不睬，我们还是希望能够不断地有更加出色的Web开发工具出现的。 笔者也是带着好奇+折腾没够的心理，想看一看这货究竟有没有点儿长处。先来看看Page Inspector的截图吧： 图1：Firefox内置开发者工具截图 怎么样？很熟悉吧？ Firefox 10内置的这个工具目前只能查看HTML结构和CSS属性，对于HTML结构只能修改标签内的属性值，而不能修改文本内容。 对于CSS属性查看器，可以像Firebug一样增添属性或者修改属性值，也可以显示属性之间相互覆盖的情况。 这货不就是个精简版Firebug吗？是的！看样子是要跟Firebug抢饭碗啊，不过目前来看，这条路还长着呢。 那么，它究竟有没有点儿长处呢？经过笔者仔细查找，终于找到值得一提的一点长处了。在查看CSS的面板中，共有两个标签：Rules和Properties。 在Properties标签下可以查看或搜索应用在当前被检查的元素上的CSS属性，当鼠标悬浮到某个属性上时会出现一个小问号图标，点击此图标会直接跳到MDN上关于该属性的文档。因此，当你对某个属性不太熟悉时，可以直接点击这里查看文档，方便学习之用，这勉强算是一点儿优点吧。 另外，在Properties标签的搜索框旁边有个选项“Only user styles”，可以选择是否只显示用户样式。如果取消该选项，就可以看到许多浏览器内置的样式了，可以通过它来查看某些内置样式的值。 好了，我实在找不出其他有用的地方了！这里还有一个官方的视频，里面介绍的有些东西在Firefox 10里还没有，可以简单看一下。 对于Firefox本身，大家也可以关注一下它为开发者提供了哪些新的东西：Firefox 10 for...
+                <a href="/blog/2012/02/04/firefox-10-web-developer-tool" class="more-link">Continue Reading &rarr;</a>
+            </p>
+        </div><!-- end entry-content -->
+    </div><!-- end entry-wrap -->
+
+    <footer class="cat-tags">
+       <p>
+            <span class="cats"><a href="" title="View all posts in theme options" rel="category tag">theme options</a></span>
+            <span class="tags"><a href="" rel="tag">customizations</a>, <a href="" rel="tag">mobile devices</a>, <a href="" rel="tag">Responsive</a></span>
+        </p>
+    </footer><!-- end cat-tags -->
+</article><!-- end post -->
+
+
+<!-- Pagination links -->
+<div id="post-pagination" class="pagination">
+    <ul class="pages clearfix">
+        
+        <li>
+            
+            <a href="/page4">Prev</a>
+            
+        </li>
+        
+
+
+        
+        <li><a href="/page1">1</a></li>
+        
+
+        
+
+        
+        <li><a href="/page2">2</a></li>
+        
+
+        
+
+        
+        <li><a href="/page3">3</a></li>
+        
+
+        
+
+        
+        <li><a href="/page4">4</a></li>
+        
+
+        
+
+        
+        <li class="active">
+            <span class="current-page">5</span>
+        </li>
+        
+
+        
+
+        
+        <li><a href="/page6">6</a></li>
+        
+
+        
+
+        
+        <li><a href="/page7">7</a></li>
+        
+
+        
+
+        
+        <li><a href="/page8">8</a></li>
+        
+
+        
+
+        
+        <li><a href="/page6">Next</a></li>
+        
+    </ul>
+</div>
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

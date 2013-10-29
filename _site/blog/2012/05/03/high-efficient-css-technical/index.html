@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>高效CSS开发核心要点 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">高效CSS开发核心要点</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">03 May 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>本文参考了业界规范及主流趋势，详尽整理了CSS开发中需要注意的要点以及关乎性能的一些问题，希望对您有所帮助，也可收藏作为参考。</p>
+
+<p><strong>1. 基本原则</strong></p>
+
+<p><strong>1.1 把CSS放在HTML页面头部</strong></p>
+
+<p>由于浏览器需要在所有的样式表加载完成后才能开始渲染页面，样式表加载完成之前页面会一直显示空白，因此需要将样式表放在头部。</p>
+
+<p><code>@import</code> 相当于把 <code>&lt;link&gt;</code> 标签放在页面的底部，因此从优化性能的角度考虑，应避免使用 <code>@import</code>。</p>
+
+<p><strong>1.2 避免使用 CSS Expressions</strong></p>
+
+<p>Expression 只有 IE 支持，而且他的执行比大多数人想象的要频繁的多。不仅页面渲染和改变大小 (resize) 时会执行，页面滚动 (scroll) 时也会执行，甚至连鼠标在页面上滑动时都会执行。在 expression 里面加上一个计数器就会知道，expression 的执行上相当频繁的。鼠标的滚动很容易就会使 expression 的执行次数超过 10000。</p>
+
+<p><strong>1.3 CSS简写</strong></p>
+
+<ol>
+<li>
+<ol>
+<li>
+<p>1 16进制颜色值简写</p>
+
+<p>color: #eebbcc;</p>
+
+<p>color: #ebc;</p>
+</li>
+</ol>
+</li>
+
+<li>
+<ol>
+<li>
+<p>2 属性值简写</p>
+
+<p>margin-top: 2px; margin-right: 5px; margin-bottom: 2em; margin-left: 15px; &#8212;&#8211;&#187; margin: 2px 5px 2em 15px;</p>
+
+<p>border-width: 1px; border-style: solid; border-color: #000 &#8212;&#8211;&#187; border: 1px solid #000</p>
+
+<p>font-style: italic; font-variant: small-caps; font-weight: bold; font-size: 1em; line-height: 140%; font-family: sans-serif; &#8212;&#8211;&#187; font: italic small-caps bold 1em/140% sans-serief</p>
+
+<p>background-color: #f00; background-image: url(background.gif); background-repeat: no-repeat; background-attachment: fixed; background-position: 0 0; &#8212;&#8211;&#187;background: #f00 url(background.gif) no-repeat fixed 0 0</p>
+
+<p>list-style-type: square; list-style-position: inside; list-style-image: url(image.gif) &#8212;&#8211;&#187; list-style: square inside url(image.gif)</p>
+</li>
+</ol>
+</li>
+</ol>
+
+<p><strong>1.4 尽量抽取相似部分</strong></p>
+
+<pre><code>.class1{position: absolute; left: 20px; top: 30px;}
+.class2{position: absolute; left: 20px; top: 30px;}
+.class3{position: absolute; left: 20px; top: 30px;}
+.class4{position: absolute; left: 20px; top: 30px;}
+.class5{position: absolute; left: 20px; top: 30px;}
+.class6{position: absolute; left: 20px; top: 30px;} 
+
+ --------------------&gt;&gt;&gt;&gt;&gt;&gt;&gt; 
+
+ .class1 .class2 .class3 .class4 .class5 .class6{
+ 	Position: absolute; left: 20px; top: 20px;
+ }</code></pre>
+
+<p><a href='http://jiguang.github.com' title='From jiguang.github.com'>jiguang.github.com版权所有</a></p>
+
+<p><strong>2. 关键要点</strong></p>
+
+<p><strong>2.1 只使用小写</strong></p>
+
+<pre><code>&lt;!-- Not recommended --&gt;
+&lt;A HREF=&quot;/&quot;&gt;Home&lt;/A&gt;
+
+&lt;!-- Recommended --&gt;
+&lt;img src=&quot;google.png&quot; alt=&quot;Google&quot;/&gt;</code></pre>
+
+<p><strong>2.2 不要有多余的空格（划线处）</strong></p>
+
+<pre><code>&lt;!-- Not recommended --&gt;
+&lt;p&gt;What?_
+
+&lt;!-- Recommended --&gt;
+&lt;p&gt;Yes please.</code></pre>
+
+<p><strong>2.3 使用utf8编码</strong></p>
+
+<pre><code>html中：
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+
+css中：
+@charset &quot;utf-8&quot;;</code></pre>
+
+<p><strong>2.4 使用<a href='http://jiguang.github.com/index.php/tag/html5/' title='html5'>html5</a>文档类型</strong></p>
+
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+
+<p><strong>2.5 验证HTML与CSS文档</strong></p>
+
+<p><a href='http://validator.w3.org/nu/'>验证HTML</a></p>
+
+<p><a href='http://jigsaw.w3.org/css-validator/'>验证CSS</a></p>
+
+<p><strong>2.6 使文档语义化</strong></p>
+
+<pre><code>&lt;!-- Not recommended --&gt;
+&lt;div onclick=&quot;goToRecommendations();&quot;&gt;All recommendations&lt;/div&gt;
+
+&lt;!-- Recommended --&gt;
+&lt;a href=&quot;recommendations/&quot;&gt;All recommendations&lt;/a&gt;</code></pre>
+
+<p><strong>2.7 多媒体（多终端）兼容</strong></p>
+
+<pre><code>&lt;!-- Not recommended --&gt;
+&lt;img src=&quot;spreadsheet.png&quot;/&gt;
+
+&lt;!-- Recommended --&gt;
+&lt;img src=&quot;spreadsheet.png&quot; alt=&quot;Spreadsheet screenshot.&quot;/&gt;</code></pre>
+
+<p><strong>2.8 不要使用实体引用</strong></p>
+
+<pre><code>&lt;!-- Not recommended --&gt;
+The currency symbol for the Euro is “&amp;eur;”.
+
+&lt;!-- Recommended --&gt;
+The currency symbol for the Euro is “€”.</code></pre>
+
+<p><strong>2.9 使用带有语义的id和class</strong></p>
+
+<pre><code>/* Not recommended: meaningless */
+#yee-1901 {}
+
+/* Not recommended: presentational */
+.button-green {}
+.clear {}
+
+/* Recommended: specific */
+#gallery {}
+#login {}
+.video {}
+
+/* Recommended: generic */
+.aux {}
+.alt {}</code></pre>
+
+<p><strong>2.10 省略零值的单位</strong></p>
+
+<pre><code>margin: 0;
+padding: 0;</code></pre>
+
+<p><strong>2.11 省略起始的零</strong></p>
+
+<pre><code>font-size: .8em;</code></pre>
+
+<p><strong>2.12 尽量避免CSS hacks</strong></p>
+
+<p>尝试换种解决方案</p>
+
+<p><strong>2.13 为末尾的声明添加分号</strong></p>
+
+<p>尽管省略末尾分号可以省略一个字节，但是非常不利于团队维护，得不偿失</p>
+
+<pre><code>/* Not recommended */
+.test {
+  display: block;
+  height: 100px
+}
+
+/* Recommended */
+.test {
+  display: block;
+  height: 100px;
+}</code></pre>
+
+<p><strong>2.14 选择器的效率</strong></p>
+
+<p>浏览器是“从右往左”来分析 class 的，对于下面的规则</p>
+
+<pre><code>#god &amp;gt; li {font-weight: bold}</code></pre>
+
+<p>浏览器会先查找页面上所有的“li”节点，然后再去做进一步的判断：如果它的父节点的 id 为“god”，则匹配成功。由此可知，CSS 选择器的匹配远比我们想象的要慢的多，CSS 的性能问题不容忽视。</p>
+
+<p><strong>2.15 后代选择器</strong></p>
+
+<pre><code>#toc li {font-weight: bold}</code></pre>
+
+<p>这个效率比之前的“child selector”效率更慢，而且要慢很多。浏览器先便利所有的“li”节点，然后步步上溯其父节点，直到 DOM 结构的根节点（document），如果有某个节点的 id 为“toc”，则匹配成功，否则继续查找下一个“li”节点。</p>
+
+<p><strong>2.16 尽量避免全局选择器</strong></p>
+
+<pre><code>[hidden=&quot;true&quot;] { ... } /* A universal rule */</code></pre>
+
+<p>这里的匹配规则很明显：查找页面上的所有节点，如果有节点存在“hidden”属性，并且其属性值为“true”，则匹配成功。这是最耗时耗力的匹配，页面上的所有节点都需要进行匹配运算，这种规则应尽量避免。</p>
+
+<p>是用星号也一样</p>
+
+<pre><code>#god li *</code></pre>
+
+<p>先找到页面上的所有元素，再匹配祖先中包含li的元素，然后在这些元素中再查找父元素的id为god的元素。</p>
+
+<p>因此，对于全局选择器，只建议一种用法：</p>
+
+<pre><code>* { margin: 0; padding: 0; /* etc. */ }</code></pre>
+
+<p><strong>2.17 避免tag+id或者class+id</strong></p>
+
+<pre><code>button#goButton {...};-----&amp;gt;&amp;gt;#goButton
+.fundation#testIcon {...};-----&amp;gt;&amp;gt;#testIcon</code></pre>
+
+<p><strong>2.18 关于tag+class</strong></p>
+
+<pre><code>button.indented {...}-----&amp;gt;&amp;gt;.button-indented {...}</code></pre>
+
+<p>程序员们经常会给某个 Class 前面加上标签名称（Tag Name），以更精确且快速的定位该节点，但是这样往往效率更差。因为页面上的 class 在全局范围内来讲应该是唯一的，用唯一的 Class 名称来定位一个节点往往比组合定位更加快捷。事实上，这种做法也可以避免由于开发修改页面元素的类型（Tag）而导致的样式失效的情况，做到样式与元素的分离，两者独立维护。<a href='http://jiguang.github.com' title='From jiguang.github.com'>jiguang.github.com版权所有</a></p>
+
+<p><strong>2.19 尽量减少规则数量</strong></p>
+
+<p>可以考虑将层级关系写到一个class中，不过在层级变动时就比较麻烦了</p>
+
+<pre><code>Span[mailfolder=&amp;quot;true&amp;quot;] &amp;gt; table &amp;gt; tr &amp;gt; td.columnClass {...}
+
+-------------------&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+
+.span-mailfolder-tbl-tdCol {...}</code></pre>
+
+<p><strong>2.20 避免过长的class命名</strong></p>
+
+<p>可以考虑缩写</p>
+
+<pre><code>ocHeroImage
+ocEmailAddress</code></pre>
+
+<p>如果觉得难以理解，可以加入连字符或注释</p>
+
+<pre><code>oc-HeroImage
+oc-EmailAddress</code></pre>
+
+<p>尽管有语义化方面的考虑，但命名还是尽量短一些，只要易于辨认即可</p>
+
+<pre><code>heroImg
+emailAddr</code></pre>
+
+<p><strong>2.21 文件名中不应有空格</strong></p>
+
+<p>a) 有空格的文件名会被Google当成两个关键字，可能带来更多的搜索结果，引来更多流量，是好事<br />b) 有空格意味着不能省略引号，多了两个字节<br />c) 空格会被浏览器自动转换为%20，老的浏览器可能不支持，如果将%20硬编码到URL中则每个实例中都多了两个字符</p>
+
+<pre><code>input {background: url(&quot;/images/shadow background.gif&quot;);}</code></pre>
+
+<p><strong>2.22 省略URI的引号</strong></p>
+
+<pre><code>@import url(//www.google.com/css/go.css);</code></pre>
+
+<p><strong>2.23 尽量避免后代选择器</strong></p>
+
+<pre><code>treehead treerow treecell {...} -----&amp;gt;&amp;gt; treehead &amp;gt; treerow &amp;gt; treecell {...}</code></pre>
+
+<p>Descendant 选择器是耗时相对高的选择器，通常来讲，它在 CSS 里的使用应该是尽量避免的，如果能用 child 选择器替代就应该尽量这样去做。</p>
+
+<p><strong>2.24 充分利用继承机制</strong></p>
+
+<pre><code>Color
+ font
+ letter-spacing
+ line-height
+ list-style
+ text-align
+ text-indent
+ text-transform
+ white-space
+ word-spacing 
+
+ #bookmark  &amp;gt; .menu-left {list-style-image: url(blah)}
+
+ ------------&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+
+ #bookmark  {list-style-image: url(blah)}</code></pre>
+
+<p><strong>2.25 发布之前一定要进行压缩</strong></p>
+
+<p>可使用<a href='http://yuilibrary.com/projects/yuicompressor'>YUI Compressor</a>或类似软件进行压缩后再发布。</p>
+
+<p><a href='http://jiguang.github.com' title='From jiguang.github.com'>jiguang.github.com版权所有</a></p>
+
+<p><strong>3. 高级技巧</strong></p>
+
+<p><strong>3.1 省略嵌入资源的协议</strong></p>
+
+<p>即可避免混合内容问题（mixed content issues）也可以缩减文件大小</p>
+
+<pre><code>&amp;lt;!-- Not recommended --&amp;gt;
+&amp;lt;script src=&amp;quot;http://www.google.com/js/gweb/analytics/autotrack.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Recommended --&amp;gt;
+
+&amp;lt;script src=&amp;quot;//www.google.com/js/gweb/analytics/autotrack.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+/* Not recommended */
+.example {
+  background: url(http://www.google.com/images/example);
+}
+
+/* Recommended */
+.example {
+  background: url(//www.google.com/images/example);
+}</code></pre>
+
+<p><strong>3.2 省略可选的标签</strong></p>
+
+<p><a href='http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission'>HTML5规范</a>中指定了一些可以省略的标签，可以缩减文件大小</p>
+
+<pre><code>&amp;lt;!-- Not recommended --&amp;gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Spending money, spending bytes&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p&amp;gt;Sic.&amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&amp;lt;!-- Recommended --&amp;gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;title&amp;gt;Saving money, saving bytes&amp;lt;/title&amp;gt;
+&amp;lt;p&amp;gt;Qed.</code></pre>
+
+<p><strong>3.3 文件结构</strong></p>
+
+<p>由于图像等资源一般只有CSS文件使用，故可将图像文件夹放到CSS文件同级目录，这样就可使用相对路径，节省字节数</p>
+
+<pre><code>input {background: url(&quot;images/shadow background.gif&quot;);}</code></pre>
+
+<p><strong>3.4 文件夹命名</strong></p>
+
+<p>通常文件夹会被命名为其所代表的资源的复数形式</p>
+
+<pre><code>images
+assets
+fonts</code></pre>
+
+<p>其实大可不必，使用单数形式可以节省许多字节，尤其是当每个项目的结构都类似时</p>
+
+<pre><code>img
+asset
+font</code></pre>
+
+<p>对于下面一段包含58字节的代码：</p>
+
+<pre><code>input {background: url(&quot;/images/shadow background.gif&quot;);}</code></pre>
+
+<p>优化后变为52字节，即10%的压缩：</p>
+
+<pre><code>input {background: url(img/shadow-background.gif);}</code></pre>
+
+<p>如果在使用缩写，则可进一步缩减：</p>
+
+<pre><code>input {background: url(img/shadow-bg.gif);}</code></pre>
+
+<p>如果一个项目有几百行这样的代码，那么就会节省几百字节了。如果站点访问量超大，则可节省数目客观的带宽资源。</p>
+
+<p><strong>3.5 末尾声明的分号</strong></p>
+
+<p>前面提过，去掉末尾声明的分号可以节省字节，但不利于维护。可以考虑在压缩发布阶段去掉。</p>
+
+<pre><code>.clear {clear:both;}
+
+.clear {clear:both}</code></pre>
+
+<p><strong>3.6 背景色简写</strong></p>
+
+<p>背景色简写也可节省字节，但要慎用，因为省略掉的默认属性会覆盖前面的属性。</p>
+
+<pre><code>background-color: blue;
+
+background: blue;</code></pre>
+
+<p><strong>3.7 滤镜简写</strong></p>
+
+<pre><code>selector {
+	-ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=65)&quot;;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+}</code></pre>
+
+<p>filter的版本是IE8以下的，–ms-filter的版本是IE9以上的，YUI会将其压缩为：</p>
+
+<pre><code>selector {
+	-ms-filter:&quot;alpha(opacity=65)&quot;;
+	filter:alpha(opacity=65);
+}</code></pre>
+
+<p>由于YUI的广泛使用极其社区开发着的强大力量，说明这种写法已经是经过深度测试的写法，可以放心使用。</p>
+
+<p><strong>3.8 Gzip压缩与CSS书写</strong></p>
+
+<p><a href='http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml'>Goolge建议</a>按照字母顺序书写CSS规则，方便维护。其他公司也有自己的规范。从Gzip压缩角度，只要整个文档中的书写顺序保持一致即可，可以提高Gzip压缩比率。</p>
+
+<pre><code>background: fuchsia;
+border: 1px solid;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+color: black;
+text-align: center;
+text-indent: 2em;</code></pre>
+
+<p><strong>3.9 更少的请求比更小的尺寸重要</strong></p>
+
+<p>文件可以适当的合并，只保留基本的层级即可</p>
+
+<pre><code>&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;http://css.somedomain.com/reset.css&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;http://css.somedomain.com/global.css&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;http://css.somedomain.com/home.css&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;</code></pre>
+
+<p><a href='http://jiguang.github.com' title='From jiguang.github.com'>jiguang.github.com版权所有</a></p>
+
+<p><strong>参考资料：</strong></p>
+
+<p><a href='http://en.wikipedia.org/wiki/Css'>http://en.wikipedia.org/wiki/Css</a></p>
+
+<p><a href='http://www.w3.org/TR/CSS21/'>http://www.w3.org/TR/CSS21/</a></p>
+
+<p><a href='http://www.ibm.com/developerworks/cn/web/1109_zhouxiang_optcss/'>http://www.ibm.com/developerworks/cn/web/1109_zhouxiang_optcss/</a></p>
+
+<p><a href='http://www.w3.org/TR/css3-color/#html4'>http://www.w3.org/TR/css3-color/#html4</a></p>
+
+<p><a href='http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml'>http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml</a></p>
+
+<p><a href='http://www.w3.org/International/tutorials/tutorial-char-enc/en/all.html'>http://www.w3.org/International/tutorials/tutorial-char-enc/en/all.html</a></p>
+
+<p><a href='http://www.amazon.com/Pro-CSS-High-Traffic-Websites/dp/1430232889/ref=sr_1_1?ie=UTF8&amp;qid=1336017836&amp;sr=8-1'>Pro CSS for High Traffic Websites</a></p>
+
+<p><a href='http://www.ibm.com/developerworks/cn/web/1009_chengfu_dojocss/'>http://www.ibm.com/developerworks/cn/web/1009_chengfu_dojocss/</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/04/27/random-sort-dom-elements" title="JavaScript随机排序的一种实现"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/05/04/amazon-reviews-for-smashing-css" title="好书短评之《精彩绝伦的CSS》">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#性能优化-ref">性能优化 <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#技巧-ref">技巧 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#语义化-ref">语义化 <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

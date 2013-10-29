@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>善用 Web 调试代理工具 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    <meta name="description" content="善用 Web 调试代理工具">
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">善用 Web 调试代理工具</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">25 February 2013</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>原文地址：<a href='http://net.tutsplus.com/tutorials/using-web-debugging-proxies/'>Using Web Debugging Proxies</a></p>
+
+<p>当我们调试前端代码的时候，通常会在检查CSS和JavaScript如何渲染页面上花费大量时间，但是了解网络请求对页面的影响也同等重要。很多情况下由于我们在本地开发，可能会忽略页面的大小、延迟以及脚本的载入和阻塞对网站用户体验的巨大影响。因此，一套得心应手的网络流量检查工具是必不可少的。</p>
+
+<p>幸运的是，所有主流浏览器都提供了可以查看网络流量的调试工具，而且第三方工具比如 Fiddler 和 Charles 不仅允许查看网络请求，而且还提供了可以跟网站交互的扩展功能。</p>
+
+<p>下面我们会对两种类型的工具分别进行介绍。</p>
+
+<h2 id='id9'>基于浏览器的流量嗅探</h2>
+
+<p>正如我提过的，每个主流浏览器都有内置的调试工具。它们包括：</p>
+
+<ul>
+<li>Internet Explorer 的 F12 开发者工具</li>
+
+<li>Firefox 的 Web开发者工具以及 Firebug 附加组件</li>
+
+<li>Chrome 的 开发者工具</li>
+
+<li>Opera 的 Dragonfly</li>
+
+<li>Safari 的 Web检查器</li>
+</ul>
+
+<p>（<a href='http://44ux.com'>译者</a>注：关于这些工具，还可参见译者的<a href='http://44ux.com/blog/2012/04/07/smashing-css-sample-chapter2/'>另一篇文章</a>。）</p>
+
+<p>每个工具集都有自己独特的功能，并且它们都有搜集网络流量信息的能力。看一下下面几张图，你会发现尽管UI不尽相同，但搜集和显示的数据却非常相像。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-network-ie.png' /></p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-network-chrome.png' /></p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-network-opera.png' /></p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-network-firebug.png' /></p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-network-firefox.png' /></p>
+
+<p>最终的结果就是，一个由浏览器下载的资源或数据而产生的网络请求所组成的列表。网络工具可以截获这些请求并将主要的数据展示给你：</p>
+
+<ul>
+<li>请求类型（GET，POST 等等） * 请求的是什么</li>
+
+<li>URI * 状态 * 大小 * 完成请求所耗时间</li>
+</ul>
+
+<p>因此，如果我们在 Firebug 中查看结果，可以看到这些请求拉回了主页面以及相关的CSS和JavaScript文件，包括亚马逊AWS上的资源。由于图片的限制，我无法向你展示全部加载内容，不过这里也还返回了图片和Flash swf文件。</p>
+
+<h2 id='id10'>深入研究</h2>
+
+<p>有了这些信息后，就可以深入查看特定的请求，确定是否接收到了正确的数据，以及查看为什么会有耗时很长的请求。假设我查看Webtrend的JavaScript文件请求。它耗时1.2秒下载，并且我想看看请求是如何被处理的。我可以展开该请求，看看它是使用gzip压缩（是的）：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-webtrend.png' /></p>
+
+<p>和是否被最小化压缩（minified）：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-webtrend-min.png' /></p>
+
+<p>本例中的文件并没有被最小化压缩，然后我就可以找开发人员跟进看这样做是否合理。诚然，这只是个2k的文件，不过每个字节其实都很重要，这些信息可以让我们更好地优化网站。</p>
+
+<h2 id='id11'>网络计时</h2>
+
+<p>网络延时可以成为致命杀手，尤其是对于那些依赖外部API或者多个脚本文件来实现功能的单页面应用（single-page apps）。大部分浏览器会尽可能地异步加载资源，但是有些资源比如JavaScript文件，可以触发阻塞事件。尽可能地限制这些文件，并以此来优化资源加载至关重要。如果我们看一下这张图，就会发现这个文件花费了1.4秒用来加载：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-load-graphic.png' /></p>
+
+<p>当悬停在时间轴上的时候，会出现一个对话框，展示了请求被处理的分解信息：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-load.png' /></p>
+
+<p>部分原因是由于它被阻塞了760毫秒。如果这是个普遍存在的问题，你可以尝试使用脚本加载器（比如 <a href='http://requirejs.org/'>RequireJS</a>）来更好地管理脚本加载和依赖关系。</p>
+
+<h2 id='ajax'>Ajax请求</h2>
+
+<p>由于动态应用无处不在，因此能够查看XHR调用就至关重要了。之前你已经见识过无数的网络请求，试图过滤这些请求并从中找出XHR调用并不高效。因此，大部分工具允许你按请求类型查看。这里我是根据XHR请求过滤的，因此我可以评估请求和响应：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-chrome-xhr.png' /></p>
+
+<p>通过深入查看请求信息，我可以获得请求的重要细节，比如请求头、状态、请求方法、cookies，更重要的是可以看到该请求返回的数据：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-chrome-xhr-response.png' /></p>
+
+<p>本例中返回的是HTML，不过响应可以是包括文本、JSON或XML在内的任何内容。更棒的是在我遇到任何问题时，都可以充分地查看请求细节。</p>
+
+<h2 id='cokkies'>Cokkies</h2>
+
+<p>Cookies真的非常有用，由于我们会广泛地用到它，因此一个方便地查看Cookie值的方法将使生活变得更轻松。开发者工具即可轻松实现这些，它可以展示哪些Cookies被发送或者接收了。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-cookies.png' /></p>
+
+<p>如果你曾经做过服务器端开发而没有客户端工具相伴，你就会知道这有多爽了。</p>
+
+<p>总之，最棒的就是这些功能都内置在你的浏览器中，使开启工具调试和查看细节都变得无比便捷。然而，有时你还需要多一点马力。</p>
+
+<h2 id='http'>第三方HTTP代理工具</h2>
+
+<p>HTTP代理程序如 <a href='http://www.fiddler2.com/'>Fiddler</a> 和 the <a href='http://www.charlesproxy.com/'>Charles Web Debugging Proxy</a> 是基于浏览器的网络流量嗅探工具的老大哥。它们不仅能截获来自浏览器的网络请求，也能截获你机器上其他程序的网络请求，这使得它们在调试方面用途广泛。通常它们也会提供更丰富的特性，比如：</p>
+
+<p>* 带宽限制 * 特定请求的自动响应 * 传输过程中的资源替换 * SSL代理 * 插件生态系统 * 可自定义的脚本 * 记录和回放测试场景</p>
+
+<p>我常用基于Windows的、功能丰富的 Fiddler（免费的！）。由于其强大的特性集合，在微软内部的使用也很广泛。Fiddler的开发者 Eric Lawrence 之前就在微软工作，并且仍然维护着该软件。</p>
+
+<p>如果我们看下界面，就会发现与那些浏览器工具类似的输出。所有的网络请求都按照关键信息显示。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-fiddler.png' /></p>
+
+<p>深入查看某个请求，可以看到更多的细节，包括压缩后jQuery源代码：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-fiddler-drill.png' /></p>
+
+<p>大部分这种信息也可以通过基于浏览器的工具获取到，但是当你想确定是不是某个库搞垮了你的网站的时候怎么办？你可以直接换掉这些库来进行定位。一个较好的路径就是创建一个Fiddler自动响应器（AutoResponder），拦截并替换掉生产环境中的库。Fiddler会接收这个请求并将其替换为本地文件。下面我们就来一探究竟。</p>
+
+<p>首先，我需要标识出需要替换的URI。在本例中，我看到我的博客主题使用了jQuery v1.2.6。真是疯了，不过在我丢掉它之前，需要看一下jQuery v1.8.3是否能如预期一样正常工作。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-jquery-126.png' /></p>
+
+<p>我点击 jQuery v1.2.6 这条记录，在 Fiddler 的右栏中，选择“AutoResponder”页卡并选择“Enable automatic responses”。可以直接将URI拖拽到规则编辑器中。你会发现规则是从比较URI开始的。如果匹配，它将以你选择的某个事件作为响应。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-fiddler-autorule1.png' /></p>
+
+<p>由于我想测试的是 jQuery 1.8.3，我希望这条规则可以用我本地的jQuery副本替换生产环境的版本。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-fiddler-autorule2.png' /></p>
+
+<p>保存这条规则并刷新我的页面。最终结果是，尽管URI可能看上去相同，检查结果可以验证 jQuery v1.8.3 实际上已经嵌入了。这样我就可以在不对网站进行任何更改的情况下直接测试了。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-fiddler-autorule3.png' /></p>
+
+<p>从调试的角度来讲，这种功能无比实用，尤其是当你想定位一个藏在老版本框架或库中的bug时候。</p>
+
+<h2 id='id12'>附加组件生态系统</h2>
+
+<p>Fiddler从它的<a href='http://www.fiddler2.com/Fiddler2/extensions.asp'>附件组件生态系统</a>中获益良多，这个系统通过<a href='http://www.fiddler2.com/fiddler/dev/IFiddlerExtension.asp'>iFiddlerExtension接口</a>为Fiddler扩展功能。目前有如下功能的附加组件：</p>
+
+<p>* 压力测试 * 安全审计 * 流量对比用来对比概况 * JavaScript格式化</p>
+
+<p>对于它本身来说，Fiddler拥有无数特性，实在无法在本文一一列举。这就是为啥有个<a href='http://www.fiddler2.com/book/'>330页的书</a>来教你如何用好它的原因了。这本书只有10美元，即可让你从内到外掌握这个伟大的工具。</p>
+
+<h2 id='osx__linux'>OSX 和 Linux</h2>
+
+<p>如果你在用OSX或者Linux，那么最佳选择就是Charles Web调试代理工具。该工具支持广泛并且商业化成熟，每一分钱都花得很值得。我曾寻找过专注于web开发的替代品，而Charles却脱颖而出。</p>
+
+<p>界面跟Fiddler很类似，不过它提供了两种不同的方式查看网络流量：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-charles-struct.png' /></p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-charles-seq.png' /></p>
+
+<p>样式完全随你，我更倾向于结构化视图，因为感觉它更有条理，不过搜寻特定的URI就稍有不便。</p>
+
+<p>与Fiddler类似，Charles也提供了自动响应功能，叫做“Map Local…”，可以通过鼠标右击某个URI呼出。该功能允许你选择一个本地文件进行工作。</p>
+
+<p>当刷新页面后，我的jQuery v1.2.6就被我本机上的jQuery v1.9替换掉了。</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-charles-autoresp.png' /></p>
+
+<p>Charles另外一个极好的特性就是，它可以抑制网络请求来模拟特定的带宽速度。仍记得使用56K猫时的那些令人捉急的日子，使用这个功能可以让你尽情追忆似水年华：</p>
+
+<p><img alt='' src='http://44ux.com/content/uploads/2013/02/debug-proxies-charles-throttle.png' /></p>
+
+<p>Chares也提供了一个跨平台的界面，因此也可以在Windows上工作。</p>
+
+<h2 id='id13'>该用哪一个</h2>
+
+<p>所有这些工具我每时每刻都在用，因为我需要测试每个主流的浏览器，有了这些功能着实可以使问题定位更容易些。当然，是选择基于浏览器的嗅探工具，还是基于应用程序的代理工具完全取决于你的调试需要。</p>
+
+<blockquote>
+<p>如果你只需要检查某些流量并查看结果，那么基于浏览器的嗅探工具可能是你的最佳选择。</p>
+</blockquote>
+
+<p>另一方面，如果你需要精确控制URI如何响应，或者希望可以灵活地创建自定义脚本，那么像Fiddler或Charles这种工具才是你需要的。令人欣慰的是，我们有稳定的备选方案可以帮助我们实现这些功能，尤其是当项目复杂度日益增加时，也不会感到无力。</p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/10/23/array-duplicate-removal-in-sizzle" title="Sizzle 各版本中数组去重方法 Sizzle.uniqueSort 的演变"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#翻译-ref">翻译 <span>11</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

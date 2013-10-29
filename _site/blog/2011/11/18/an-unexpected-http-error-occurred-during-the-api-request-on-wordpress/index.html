@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Wordpress不能安装插件或主题 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">Wordpress不能安装插件或主题</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">18 November 2011</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>今天在折腾 WordPress 的时候突然发现不能安装插件了，主题也同样安装不了，在 laserij 解决问题的过程中遇到几个问题，也查找了一些资料，这里整理出来希望能对大家有所帮助。</p>
+
+<p>首先，我的 WordPress 在插件安装页面出现了以下错误提示：</p>
+
+<pre><code>An Unexpected HTTP Error occurred during the API request.</code></pre>
+
+<p>大致意思是“在发送API请求时发生了一个未知的HTTP错误”，那么既然是“未知”错误，我们就要想办法一探究竟了！</p>
+
+<p>首先打开 WordPress 的调试功能，找到 wp-config.php 这个文件，将 WP_DEBUG 设为 true：</p>
+
+<pre><code>define(&#39;WP_DEBUG&#39;, true);</code></pre>
+
+<p>然后就可以看到报错信息了。不过这个错误信息也很神奇，信息内容如下：</p>
+
+<p>Notice: has_cap was called with an argument that is deprecated since version 2.0! Usage of user levels by plugins and themes is deprecated. Use roles and capabilities instead. in /Users/mikkel/Dropbox/Safe/annikalundgren/wp-includes/functions.php on line 3466</p>
+
+<p>这个信息大致的意思是“has_cap调用时的一个参数在2.0版本以后就已经过时了！主题或插件中使用用户级别已经过时了。使用角色和对应的能力替代。错误代码在/Users/mikkel/Dropbox/Safe/annikalundgren/wp-includes/functions.php 中第 3466 行”。</p>
+
+<p>这个错误说明我们安装的某个插件或主题过时了，使用了旧的API接口，所传的参数不正确。那么接下来第一步就是要确定是哪个插件或主题出错了。按照我之前的操作来看，应该是安装的某个插件出了问题，所以先禁止全部插件再说！果然，禁止全部插件后问题消失了。那么接下来就要用鸟枪法挨个试验了，最后确定了居然是“Syntax Highlighter Compress”出错了。</p>
+
+<p>下面要在插件的文件中找到类似 add_submenu_page 这样的函数，幸好 Intellij IDEA 有个 Find in Path 功能，可以在路径中查找内容，瞬间就找到了函数位置：</p>
+
+<pre><code>add_submenu_page(&#39;options-general.php&#39;, __(&#39;Syntax Highlighter ComPress Options&#39;, &#39;SHC&#39;), $menutitle, 8, basename(__FILE__), &#39;shc_options_subpanel&#39;);</code></pre>
+
+<p>这里这个参数 8 就是用户权限级别的数字，在2.0版本之后，这里应该传入一个 String 类型的参数，用来表示用户的能力，那么我们将这个参数修改为 “read”，即可解决问题了。即代码为：</p>
+
+<pre><code>add_submenu_page(&#39;options-general.php&#39;, __(&#39;Syntax Highlighter ComPress Options&#39;, &#39;SHC&#39;), $menutitle, &#39;read&#39;, basename(__FILE__), &#39;shc_options_subpanel&#39;);</code></pre>
+
+<p>关于用户的角色和能力，请参看：<a href='http://codex.wordpress.org/Roles_and_Capabilities'>Roles and Capabilities</a> 。</p>
+
+<p>下面返回插件安装界面，再次刷新，发现 DEBUG 信息消失了，说明程序应该没有出现问题，但是：</p>
+
+<pre><code>An Unexpected HTTP Error occurred during the API request.</code></pre>
+
+<p>的提示仍然存在，还是安装不了插件。继续搜寻解决方案，有网友提到 HTTP 请求的超时时间的问题，先试一下再说！方法如下：</p>
+
+<p>找到 /wp-includes/http.php，如果是 WordPress3.0以上，则在 /wp-includes/class-http.php 中，Ctrl+F 搜索，找到如下一行：</p>
+
+<pre><code>&#39;timeout&#39; =&gt; apply_filters( &#39;http_request_timeout&#39;, 5),</code></pre>
+
+<p>后面的数字5表示请求超时的时间，将这个数值改大一点，比如100，然后将修改后的文件更新到FTP服务器。</p>
+
+<p>再次刷新插件安装界面，仍然提示错误…我倒…</p>
+
+<p>又继续研究了一下，据说可能是服务器限制超时时间的原因，于是我咨询了我的服务器提供商，得到的答案是，服务器超时时间为 120 秒，这说明不是服务器的原因。那么，到底是怎么个回事呢？继续搜索…</p>
+
+<p>看到有的牛人提供了一个可供调试的插件，据说是 WordPress 开发必备之工具，称之为：Core Control <a href='http://wordpress.org/extend/plugins/core-control/'>http://wordpress.org/extend/plugins/core-control/</a>，可以借助这个工具来查看许多信息。由于 <a href='http://jiguang.github.com'>laser</a> 目前不能在线安装插件，只好把这个插件下载下来，手动 FTP 传上去。</p>
+
+<p>选择 HTTP Access module ，然后保存，打开页面上方新出现的 HTTP Tab，在这里可以看到当前 WordPress 正在使用哪种方法进行 HTTP 传输，从给出的报表可以看到，该服务器此时的 PHP Stream 和 PHP fsockopen() 都是 Not Available （不可用）的。于是我把截图给了技术支持的客服，估计他们是不想麻烦了，说给我换服务器，等20分钟。</p>
+
+<p>经过一番周折后，换了服务器，改了IP，再次进行了尝试，发现偶尔有某个插件可以下载成功，大部分还是下载一半就停止，不过之前的错误总算消失了，这说明服务器方面是有一定原因的，这个问题也算告一段落了。最后，记得关掉 WordPress 的调试模式。</p>
+
+<pre><code>define(&#39;WP_DEBUG&#39;, false);</code></pre>
+
+<p>在整个解决问题的过程中，任何一个解决步骤都解决了一大批人的问题，可是在我这里一直折腾到最后也还没有很好的解决。那个HTTP错误还是偶尔会出现，所以，我还是有点怀疑是不是 WordPress 本身的 API 服务器现在已经承受不了这么大的负载，偶尔就扛不住挂掉了，或者是API接口的连接数到达上限了，而我们恰好被踢了下来，所以才有这么多人遇到这个问题。</p>
+
+<p>在网速不是很快的情况下，建议大家还是先下载再用FTP工具上传吧，Wordpress在线下载的貌似不支持断点续传，中间一旦出了什么问题终止了，就得重新再安装。而且在服务器上留下了一些临时文件，还要手动删除。</p>
+
+<p>如果你也遇到了同样的问题，或者你有什么好的解决办法，欢迎留言交流：）</p>
+
+<p>参考文献：</p>
+
+<p><a href='http://www.clickonf5.org/5802/solved-an-unexpected-http-error-wordpress/'>http://www.clickonf5.org/5802/solved-an-unexpected-http-error-wordpress/</a></p>
+
+<p><a href='http://www.antonkoekemoer.com/wordpress/solution-an-unexpected-http-error-occurred-during-the-api-request/'>http://www.antonkoekemoer.com/wordpress/solution-an-unexpected-http-error-occurred-during-the-api-request/</a></p>
+
+<p><a href='http://wordpress.org/support/topic/an-unexpected-http-error-occurred-during-the-api-request-on-wordpress-3'>http://wordpress.org/support/topic/an-unexpected-http-error-occurred-during-the-api-request-on-wordpress-3</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2011/11/11/abtest-material-summary" title="A/B测试相关资料汇总"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2011/11/19/mac-install-nodejs-with-macports-or-homebrew" title="Mac下安装 nodejs 的几种方法">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

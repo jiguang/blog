@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>通过对象图学习JavaScript 【之二】 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">通过对象图学习JavaScript 【之二】</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">10 February 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>由于我的<a href='http://jiguang.github.com/index.php/2012/02/learning-javascript-with-object-graphs/'>第一篇文章</a>里通过图解描述JavaScript语义的方式大受欢迎，因此我决定尝试用这种方法来讲解一些高级内容。在本文中，我会讲解三种常用的创建对象的技术，它们分别是：构造器（constructor）加原型（prototype）的方式、纯原型的方式以及对象工厂（object factory）的方式。</p>
+
+<p>我的目的是希望能够帮助大家理解每种技术的优缺点，并理解其运行机理。</p>
+
+<p><strong>经典的JavaScript构造器</strong></p>
+
+<p>首先我们通过原型来创建一个简单的构造器。这是在原生的JavaScript中最接近类（class）的一种方式。它非常强大而有效，但是我们并不能奢望它像其他包含类的语言一样强大。</p>
+
+<pre><code>//长方形
+function Rectangle(width, height) {
+this.width = width;
+this.height = height;
+}
+Rectangle.prototype.getArea = function getArea() {
+return this.width * this.height;
+};
+Rectangle.prototype.getPerimeter = function getPerimeter() {
+return 2 * (this.width + this.height);
+};
+Rectangle.prototype.toString = function toString() {
+return this.constructor.name + &quot; a=&quot; + this.getArea() + &quot; p=&quot; + this.getPerimeter();
+};
+//正方形
+function Square(side) {
+this.width = side;
+this.height = side;
+}
+Square.prototype.__proto__ = Rectangle.prototype;
+Square.prototype.getPerimeter = function getPerimeter() {
+return this.width * 4;
+};
+//测试
+var rect = new Rectangle(6, 4);
+var sqr = new Square(5);
+console.log(rect.toString())
+console.log(sqr.toString())</code></pre>
+
+<p>现在我们新定义一个叫做Square的类对象，它继承自Rectangle。为了实现继承，构造器的prototype必须继承自父构造器的prototype。这里我们覆盖了getPerimeter使其更加高效，顺便展示一下如何来覆盖函数。</p>
+
+<pre><code>function Square(side) {
+this.width = side;
+this.height = side;
+}
+Square.prototype.__proto__ = Rectangle.prototype;
+Square.prototype.getPerimeter = function getPerimeter() {
+return this.width * 4;
+};</code></pre>
+
+<p>用法就很简单了，只要给每个都创建一个实例（instance）并在实例上调用函数即可。</p>
+
+<pre><code>var rect = new Rectangle(6, 4);
+var sqr = new Square(5);
+console.log(rect.toString())
+console.log(sqr.toString())</code></pre>
+
+<p>输出：<br />Rectangle a=24 p=20 Square a=25 p=20</p>
+
+<p>下图是生成的数据结构，虚线表示对象的继承。</p>
+
+<p><img alt='classic' src='http://jiguang.github.com/content/uploads/2012/02/classic.png' /></p>
+
+<p>注意，虽然它们都是继承自Rectangle.prototype的对象，但在rect实例和Square.prototype之间还是有一点小区别。如果你仔细研究的话，会发现JavaScript不过是一系列相互关联的对象而已。唯一特殊的对象就是函数（function）了，在函数中可以接受参数并且可以包含可执行的代码，函数还可以指向作用域（scope）。</p>
+
+<p><strong>纯原型对象</strong></p>
+
+<p>再看刚才的例子，这次我们不使用构造函数，而只使用纯原型继承。</p>
+
+<p>我们来定义一个Rectangle原型来作为构建其他对象的基础。</p>
+
+<pre><code>var Rectangle = {
+name: &quot;Rectangle&quot;,
+getArea: function getArea() {
+return this.width * this.height;
+},
+getPerimeter: function getPerimeter() {
+return 2 * (this.width + this.height);
+},
+toString: function toString() {
+return this.name + &quot; a=&quot; + this.getArea() + &quot; p=&quot; + this.getPerimeter();
+}
+};</code></pre>
+
+<p>现在我们来定义一个名为Square的子对象，并且覆盖一些属性来改变它的某些行为。</p>
+
+<pre><code>var Square = {
+name: &quot;Square&quot;,
+getArea: function getArea() {
+return this.width * this.width;
+},
+getPerimeter: function getPerimeter() {
+return this.width * 4;
+},
+};
+Square.__proto__ = Rectangle;</code></pre>
+
+<p>为了创建这些原型的实例，首先我们简单地创建一个继承自原型对象的新对象，然后再手动设置一些局部状态。</p>
+
+<pre><code>var rect = Object.create(Rectangle);
+rect.width = 6;
+rect.height = 4;
+var square = Object.create(Square);
+square.width = 5;
+console.log(rect.toString());
+console.log(square.toString());</code></pre>
+
+<p>输出：<br />Rectangle a=24 p=20 Square a=25 p=20</p>
+
+<p>下面是生成的对象图：</p>
+
+<p><img alt='graph' src='http://jiguang.github.com/content/uploads/2012/02/graph.png' /></p>
+
+<p>这个方法没有构造器+原型的方法那么强大，但是通常更容易理解一点，因为它没有那么拐弯抹角。当然了，如果你之前使用的语言包含纯原型继承，那么你会很高兴地发现在JavaScript中也是可以实现的。</p>
+
+<p><strong>对象工厂</strong></p>
+
+<p>我最喜欢的创建对象的方法之一就是使用工厂函数。它的不同之处在于，你不必定义包含所有共享函数的原型对象，然后再创建这些对象的实例，每次只需要简单地调用一个可以返回新对象的函数即可。</p>
+
+<p>这个例子是一个超简单的MVC系统。控制器（controller）函数接受作为参数的模型（model）和视图（view）对象并且输出一个新的控制器对象。所有状态都通过作用域保存在闭包中。</p>
+
+<pre><code>function Controller(model, view) {
+view.update(model.value);
+return {
+up: function onUp(evt) {
+model.value++;
+view.update(model.value);
+},
+down: function onDown(evt) {
+model.value--;
+view.update(model.value);
+},
+save: function onSave(evt) {
+model.save();
+view.close();
+}
+};
+}</code></pre>
+
+<p>若想使用该函数，只需要传入所需的参数调用函数即可。注意一下我们是如何用它来作为事件处理函数（setTimeout）而不用事先将函数绑定到对象上的。由于它（该函数）在内部不使用this关键字，因此就没有必要搞乱this的值了。</p>
+
+<pre><code>var on = Controller(
+// 内嵌模拟的模型
+{
+value: 5,
+save: function save() {
+console.log(&quot;Saving value &quot; + this.value + &quot; somewhere&quot;);
+}
+},
+// 内嵌模拟的视图
+{
+update: function update(newValue) {
+console.log(&quot;View now has &quot; + newValue);
+},
+close: function close() {
+console.log(&quot;Now hiding view&quot;);
+}
+}
+);
+setTimeout(on.up, 100);
+setTimeout(on.down, 200);
+setTimeout(on.save, 300);
+
+// 输出
+View now has 5
+View now has 6
+View now has 5
+Saving value 5 somewhere
+Now hiding view</code></pre>
+
+<p>下面是这段代码生成的对象图。注意我们是通过函数隐藏的<code>scope</code>属性来访问传入的两个匿名对象的，或者换句话说，我们通过工厂函数创建的闭包可以访问到model和view。</p>
+
+<p><img alt='mvc' src='http://jiguang.github.com/content/uploads/2012/02/mvc.png' /></p>
+
+<p><strong>结论</strong></p>
+
+<p>这里面有太多我想探索的细节了，不过我更喜欢保持文章的简短易读。如果大家有需求的话，我会再写第三篇文章来讲解如何使用ruby风格的mixin以及其他一些高级内容。</p>
+
+<p>原文链接：<a href='http://howtonode.org/object-graphs-2'>http://howtonode.org/object-graphs-2</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/02/09/smashing-css-firebug-quick-tutorial" title="【TEAP早期试读】Firebug快速入门教程"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/02/11/the-performance-golden-rule" title="性能黄金法则">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#教程-ref">教程 <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#翻译-ref">翻译 <span>11</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Git 每次提交时总是要求输入用户名和密码 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    <meta name="description" content="为什么Git每次提交时总要求输入密码？">
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">Git 每次提交时总是要求输入用户名和密码</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">13 October 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>在使用 <a href='http://44ux.com/tags.html#Git-ref'>Git</a> 的时候，经常会遇到需要频繁输入密码的情况，在每次 commit 的时候都要求输入你的用户名和密码，如果提交频繁的话甚是不便。</p>
+
+<p><strong>NOTE：</strong> 如果你在用 Mac 并且刚刚升级到 Mountain Lion，那么会导致 <code>git</code> 命令找不到的错误，请参见这篇文章<a href='http://44ux.com/blog/2012/08/27/mountain-lion-git-fix/'>《Mountain Lion 中 Git “Command Not Found” 错误的解决办法》</a>。</p>
+
+<p>那么，究竟为什么会出现这种情况呢？答案就是，你在克隆（clone）分支时使用了 HTTPS 的地址，如图所示：</p>
+
+<p><img alt='clone https' src='http://www.44ux.com/content/uploads/2012/10/clone-https.png' /></p>
+
+<p>HTTPS 的地址是做什么用的呢？其实它主要是用在一些防火墙或者代理服务器设置比较严格的情况下的，比如有些公司是禁止使用 SSH 连接外网，那么在这种情况下要想使用 Git 的话，就只能用 HTTPS 的方式了。</p>
+
+<p>使用 HTTPS 的方式，也有储存密码的方式，本文后面会讲到。我们这里首推的方式是切换到 SSH，如果你的网络环境支持的话。</p>
+
+<p><strong>切换到 SSH 方式（推荐）</strong></p>
+
+<p>如果你之前没有设置过 SSH 的话，可以参考<a href='https://help.github.com/articles/generating-ssh-keys'>官方文档</a>，虽然是英文的，不过结合截图仔细看看都可以理解的，这里就不翻译了。</p>
+
+<p>通过命令行工具切换 URL 的步骤如下：</p>
+
+<p>打开你在 github.com 上的 repo</p>
+
+<p><img alt='clone https' src='http://www.44ux.com/content/uploads/2012/10/ssh-clone-url.png' /></p>
+
+<p>选择 SSH 克隆 URL，点击 URL 右侧的复制按钮将其复制到剪贴板</p>
+
+<p><img alt='clone https' src='http://www.44ux.com/content/uploads/2012/10/clone-url-clippy.png' /></p>
+
+<p>打开命令行工具，运行 <code>git remote set-url origin</code> 例如：</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git remote <span class='nb'>set</span>-url origin git@github.com:user/repo.git
+</code></pre></div>
+<p>然后再次 commit，如果出现类似：</p>
+<div class='highlight'><pre><code class='bash'>Permission denied <span class='o'>(</span>publickey<span class='o'>)</span>.
+</code></pre></div>
+<p>字样，那么说明你的 SSH key 没有设置或已经失效（譬如升级到 Mountain Lion 系统后），请重新参照上文的<a href='https://help.github.com/articles/generating-ssh-keys'>官方文档</a>进行设置即可。</p>
+
+<p><strong>HTTPS 方式保存密码</strong></p>
+
+<p><strong>OSX 用户</strong></p>
+
+<p>如果你的网络环境中只能使用 HTTPS 的方式，那么可以尝试安装 osxkeychain 凭据助手，并在 Git 中设置使用。注意：Git 版本要在 1.7.9 及以上才可使用。</p>
+
+<p>如果你装了 <a href='http://mxcl.github.com/homebrew/'>homebrew</a> 的话，那么应该已经自带了 osxkeychain，可以通过下面的命令验证：</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git credential-osxkeychain
+<span class='c'># Test for the cred helper</span>
+Usage: git credential-osxkeychain &lt;get|store|erase&gt;
+</code></pre></div>
+<p>如果没有安装，那么可以使用 <code>curl</code> 下载并安装：</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git credential-osxkeychain
+<span class='c'># Test for the cred helper</span>
+git: <span class='s1'>&#39;credential-osxkeychain&#39;</span> is not a git command. See <span class='s1'>&#39;git --help&#39;</span>.
+
+<span class='nv'>$ </span>curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+<span class='c'># Download the helper</span>
+
+<span class='nv'>$ </span>chmod u+x git-credential-osxkeychain
+<span class='c'># Fix the permissions on the file so it can be run</span>
+</code></pre></div>
+<p>现在，你需要将助手安装到与 Git 的安装目录相同的位置：</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>which git
+<span class='c'># Find where git is installed</span>
+/usr/local/git/bin/git
+
+<span class='nv'>$ </span>sudo mv git-credential-osxkeychain /usr/local/git/bin/
+<span class='c'># Move the file so git can access it</span>
+Password: <span class='o'>[</span>enter your password<span class='o'>]</span>
+
+<span class='c'># NOTE: the path /usr/local/git/bin may vary based on your OS version or where</span>
+<span class='c'># you have installed Git. If `which git` showed a different value, you should</span>
+<span class='c'># adjust the location to which you `mv` the file.  For example, if `which git`</span>
+<span class='c'># said &quot;/usr/bin/git&quot;, use `sudo mv git-credential-osxkeychain /usr/bin`.</span>
+</code></pre></div>
+<p>若想让 Git 使用 osxkeychain，可以在 Git 的全局设置中进行设置：</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git config --global credential.helper osxkeychain
+<span class='c'># Set git to use the osxkeychain credential helper</span>
+</code></pre></div>
+<p>经过这样的设置之后，下次再克隆 HTTPS 地址时会询问你的用户名和密码，并授权给 OSX keychain。完成这些之后你的用户名和密码就会存储到 keychain 中，再也不会在 Git 中询问了。</p>
+
+<p><strong>Windows 用户</strong></p>
+
+<p>如果你是 Windows 用户，那么首先可以考虑使用 <a href='http://github-windows.s3.amazonaws.com/GitHubSetup.exe'>GitHub for Windows</a>，它已经包含了该助手。</p>
+
+<p>如果你是钟爱命令行的话，可以下载对应系统的版本：</p>
+
+<p><a href='http://github-media-downloads.s3.amazonaws.com/windows/GitWindowsExtras.zip'>Windows Vista &amp; 7 版本</a></p>
+
+<p><a href='http://github-media-downloads.s3.amazonaws.com/windows/GitWindowsExtras-Fx4.zip'>Windows 8 版本</a></p>
+
+<p><a href='https://github.com/anurse/git-credential-winstore'>Source 版本</a></p>
+
+<p>解压缩文件并将里面的 git-credential-winstore.exe 放到 git 所在的目录运行即可，下次再 commit 的时候，会弹出个窗口询问用户名和密码，填写一次即可永久保存了。</p>
+
+<p><strong>NOTE：</strong> 一定要将 git-credential-winstore.exe 复制到 git 所在目录才行，比如我的目录是在 <code>D:\Program Files\Git\bin</code> 中。</p>
+
+<p><strong>Linux 用户</strong></p>
+
+<p>Linux 用户可以使用 &#8216;cache&#8217; 认证助手包来缓存认证信息，运行下面的命令来启用凭据缓存，启用后每次输入密码将保存一小时（3600秒）：</p>
+<div class='highlight'><pre><code class='bash'>git config --global credential.helper <span class='s1'>&#39;cache --timeout 3600&#39;</span>
+</code></pre></div>
+<p>下面的命令可以查看 &#8216;cache&#8217; 认证助手的所有配置：</p>
+<div class='highlight'><pre><code class='bash'>git <span class='nb'>help </span>credential-cache
+</code></pre></div>
+<p>除了这些方法之外，还有一种使用 .netrc 文件的方式，感兴趣的同学可以看看参考资料中的第一篇文章。</p>
+
+<p><strong>参考资料：</strong></p>
+
+<p><a href='https://confluence.atlassian.com/display/STASH/Permanently+authenticating+with+Git+repositories'>https://confluence.atlassian.com/display/STASH/Permanently+authenticating+with+Git+repositories</a> <a href='https://help.github.com/articles/set-up-git'>https://help.github.com/articles/set-up-git</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/10/13/proxy-setting-in-cmd" title="CMD 和 Git 中的代理设置"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/10/17/jekyll-post-draft" title="Jekyll 中如何保存文章草稿">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#Git-ref">Git <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#Mac-ref">Mac <span>2</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

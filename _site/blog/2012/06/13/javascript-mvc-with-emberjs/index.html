@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>JavaScript MVC with Ember.js 姬小光 の 乱码人生 前端开发 重构 HTML CSS JavaScript NodeJs</title>
+    
+    <meta name="author" content="JiGuang">
+
+    <!-- enable HTML5 elements in IE7+8 -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/nilmini/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/nilmini/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/assets/themes/nilmini/img/favicon.png">
+
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/nilmini/js/jquery.ui.totop.js"></script>
+</head>
+
+<body class="home blog two-column meta-right">
+<div id="page" class="clearfix">
+    <header id="header">
+        <div id="top-border">
+            <aside id="nilmini_sociallinks-2" class="widget widget_nilmini_sociallinks">
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul><!-- end .sociallinks -->
+            </aside>
+        </div><!-- end top-border -->
+
+        <div id="branding">
+            <hgroup id="site-title">
+                <h1><a href="/" title="HOME">姬小光 の 乱码人生</a></h1>
+                <h2 id="site-description">就让这时光奔腾如流水~ @44ux.com</h2>
+            </hgroup><!-- end site-title -->
+
+            <form method="get" id="searchform" action="">
+                <input type="text" class="field" name="s" id="s"  placeholder="本搜索框纯属摆设..." />
+                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+            </form>
+        </div><!-- end branding -->
+
+        <nav id="main-nav" class="clearfix">
+            <div class="menu-main-menu-container">
+                <ul id="menu-main-menu" class="menu">
+                    <li><a href="/" title="HOME">HOME</a></li>
+                    
+                    
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+                </ul>
+            </div>
+        </nav><!-- end main-nav -->
+
+        <div id="header-slogan">
+            <p>Hi, I am <a href="http://weibo.com/jiguang1984" target="_blank" title="Sina Weibo">JiGuang</a>, a Web developer<a href="http://ecd.tencent.com/" title="Our Team" target="_blank">@ECD</a> and <a href="http://www.44ux.com/" target="_blank">Blogger</a> from ShenZhen, China. </p>
+        </div><!-- end header-slogan -->
+    </header><!-- end header -->
+
+    <div id="content" class="clearfix">
+        
+<article class="post type-post status-publish format-standard hentry category-theme-options tag-customizations tag-mobile-devices tag-responsive tag-wordpress-theme">
+    <div class="entry-wrap">
+        <header class="entry-header">
+            <h2 class="entry-title"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink to Nilmini Premium WordPress Theme" rel="bookmark">JavaScript MVC with Ember.js</a></h2>
+        </header><!--end entry-header -->
+
+        <ul class="entry-meta">
+            <li class="post-date"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/" title="Permalink">13 June 2012</a></li>
+            <li class="post-author">Posted by <a href="http://themes.elmastudio.de/nilmini/author/ellen/" title="Posts by Ellen" rel="author">JiGuang</a></li>
+            <!--<li class="comments-count"><a href="http://themes.elmastudio.de/nilmini/2011/08/15/nilmini-premium-wordpress-theme/#comments" class="comments-link"  title="Comment on Nilmini Premium WordPress Theme">3 comments</a></li>-->
+        </ul><!-- end entry-meta -->
+
+        <div class="entry-content">
+            <p>最近两年 JavaScript 的 MVC 框架尤为火爆，JavaScript 应用的开发已经越来越接近传统软件开发了，各种软件工程的思想以及设计模式都逐渐应用在前端开发中。关于 JavaScript 的 MVC 框架，当前最流行的当属<a href='http://backbonejs.org/'>Backbone.js</a>了，它有着强大而活跃的社区支持以及丰富的文档资源，可称得上是当下的王者。但它的缺点也很明显，由于它过于轻量，所以很多功能都只能自己开发，它的轻量既可以说是优点也可以说是缺点，还是看能否满足你的业务需要了。</p>
+
+<p>本文即将介绍的 <a href='http://emberjs.com/'>Ember.js</a> 算得上是后起的新秀，不过它本身不是个新东西，它的前身是苹果公司出品的 <a href='http://sproutcore.com/'>SproutCore</a>，后来由原 SproutCore Team 的成员开发（或者说重命名）而产生了 Amber.js，再后来又改为 Ember.js。</p>
+
+<p>Ember.js 本身的功能非常强大，直接集成了模板功能，以及其他很多非常有用的功能。那么有的同学会问了，为什么选用Ember.js呢？它好在哪里呢？请大家先看一下InfoQ的这篇文章<a href='http://www.infoq.com/cn/news/2012/05/js-mvc-framework'>《12种JavaScript MVC框架的比较》</a>，看完后可以对 JavaScript MVC 框架的现状有一定了解。网上还有一些专门将 Backbone.js 和 Ember.js 进行比较的文章<a href='http://lostechies.com/derickbailey/2012/02/21/emberjs-initial-impressions-compared-to-backbone/'>《EmberJS: Initial Impressions (Compared To Backbone)》</a>，这说明它们还有的拼。</p>
+
+<p>个人认为，Ember.js 对于刚接触 MVC 的同学比较容易上手一点，抽象的层次更高一些，而且它提供的一些自动更新模板以及数据绑定等功能真的非常好用。缺点就是目前完全没有中文资料，主要是靠官方的文档，也有老外同学写些这方面的文章。不过<a href='http://jiguang.github.com' title='笔者'>笔者</a>相信这个库马上就会崛起，所以在这里给大家做个简单介绍，后续如果时间允许的话，会将 Ember.js 的文档翻译整理出来，方便大家学习。</p>
+
+<p><strong>什么是MVC</strong></p>
+
+<p><a href='http://zh.wikipedia.org/wiki/MVC'>MVC</a>模式（三层架构模式）（Model-View-Controller）是<a href='http://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B'>软件工程</a>中的一种<a href='http://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84'>软件架构</a>模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
+
+<p><strong>关于Ember.js</strong></p>
+
+<p>Ember（之前是SproutCore 2.0）是竞争者中的新宠。它是从 SproutCore2.0 中抽取分离其核心特性并转变成一个更加紧凑的模型框架，更加适合web应用的开发。其优点是丰富的模板系统，拥有可编写的视图和UI绑定。缺点是由于太新，相关文档跟不上，目前几乎没有中文资料。</p>
+
+<p><strong>快速开始</strong></p>
+
+<p>Ember.js 依赖于<a href='http://jquery.com/'>jQuery</a>，要想使用Ember.js需要先引入jQuery。在Ember.js的<a href='http://emberjs.com/'>官方网站</a>上，有个<a href='https://github.com/downloads/emberjs/starter-kit/starter-kit.0.9.8.1.zip'>Starter-Kit</a>是专门针对初学者的开发包，里面包含了Ember.js所需的文件以及一个html文件，可以在libs/app.js中书写自定义的代码进行调试。</p>
+
+<p>如果是自己新建的目录和文件，那么需要分别下载Ember.js和jQuery的文件然后引入：</p>
+<div class='highlight'><pre><code class='html'>    <span class='ni'>&amp;lt;</span>script src=<span class='ni'>&amp;quot;</span>js/libs/jquery.js<span class='ni'>&amp;quot;&amp;gt;&amp;lt;</span>/script<span class='ni'>&amp;gt;</span>
+    <span class='ni'>&amp;lt;</span>script src=<span class='ni'>&amp;quot;</span>js/libs/ember-0.9.8.1.min.js<span class='ni'>&amp;quot;&amp;gt;&amp;lt;</span>/script<span class='ni'>&amp;gt;</span>
+    <span class='ni'>&amp;lt;</span>script src=<span class='ni'>&amp;quot;</span>js/app.js<span class='ni'>&amp;quot;&amp;gt;&amp;lt;</span>/script<span class='ni'>&amp;gt;</span>
+</code></pre></div>
+<p>引入文件之后，可以使用jQuery的所有方法，结合Ember.js的方法开发大型App了。下面介绍一些Ember.js的基本功能，以窥一斑。</p>
+
+<p>首先，建立任何App都要先声明一个命名空间：</p>
+<div class='highlight'><pre><code class='javascript'>    <span class='c1'>// add a namespace, Em === Ember</span>
+    <span class='kd'>var</span> <span class='nx'>App</span> <span class='o'>=</span> <span class='nx'>Em</span><span class='p'>.</span><span class='nx'>Application</span><span class='p'>.</span><span class='nx'>create</span><span class='p'>();</span>
+</code></pre></div>
+<p>该命名空间可以保证各个App不发生冲突，同时它也有时间代理的功能，可以捕获所有冒泡的事件。如果你的App只是页面中的一部分，那么也可以指定一个根元素，这样事件就只会冒泡到该根元素：</p>
+<div class='highlight'><pre><code class='javascript'>    <span class='nb'>window</span><span class='p'>.</span><span class='nx'>App</span> <span class='o'>=</span> <span class='nx'>Ember</span><span class='p'>.</span><span class='nx'>Application</span><span class='p'>.</span><span class='nx'>create</span><span class='p'>({</span>
+    	<span class='nx'>rootElement</span><span class='o'>:</span> <span class='s1'>&#39;#sidebar&#39;</span>
+    <span class='p'>});</span>
+</code></pre></div>
+<p>下面介绍几个简单的例子。</p>
+
+<p><strong>1. 自动更新模板</strong></p>
+
+<p>JS中的对象App.president的值fullName已经和视图绑定，当按下按钮更新对象属性时，视图也会自动更新。</p>
+<div class='highlight'><pre><code class='javascript'>    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>script</span> <span class='nx'>type</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>text</span><span class='o'>/</span><span class='nx'>x</span><span class='o'>-</span><span class='nx'>handlebars</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+        <span class='nx'>The</span> <span class='nx'>President</span> <span class='nx'>of</span> <span class='nx'>the</span> <span class='nx'>United</span> <span class='nx'>States</span> <span class='nx'>is</span> <span class='p'>.</span>
+    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/script&amp;gt;</span>
+    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>p</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>button</span> <span class='nx'>id</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>btn1</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span><span class='nx'>TEST</span><span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/button&amp;gt;&amp;lt;/p&amp;gt;</span>
+
+    <span class='c1'>// Example 1</span>
+    <span class='nx'>App</span><span class='p'>.</span><span class='nx'>president</span> <span class='o'>=</span> <span class='nx'>Em</span><span class='p'>.</span><span class='nb'>Object</span><span class='p'>.</span><span class='nx'>create</span><span class='p'>({</span>
+        <span class='nx'>firstName</span><span class='o'>:</span> <span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>Barack</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;,</span>
+        <span class='nx'>lastName</span><span class='o'>:</span> <span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>Obama</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;,</span>
+        <span class='nx'>fullName</span><span class='o'>:</span> <span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
+            <span class='k'>return</span> <span class='k'>this</span><span class='p'>.</span><span class='nx'>get</span><span class='p'>(</span><span class='s1'>&#39;firstName&#39;</span><span class='p'>)</span> <span class='o'>+</span> <span class='s1'>&#39; &#39;</span> <span class='o'>+</span> <span class='k'>this</span><span class='p'>.</span><span class='nx'>get</span><span class='p'>(</span><span class='s1'>&#39;lastName&#39;</span><span class='p'>);</span>
+            <span class='c1'>// Tell Ember that this computed property depends on firstName</span>
+            <span class='c1'>// and lastName</span>
+        <span class='p'>}.</span><span class='nx'>property</span><span class='p'>(</span><span class='s1'>&#39;firstName&#39;</span><span class='p'>,</span> <span class='s1'>&#39;lastName&#39;</span><span class='p'>)</span>
+    <span class='p'>});</span>
+    <span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;#btn1&#39;</span><span class='p'>).</span><span class='nx'>click</span><span class='p'>(</span> <span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
+        <span class='nx'>App</span><span class='p'>.</span><span class='nx'>president</span><span class='p'>.</span><span class='nx'>set</span><span class='p'>(</span><span class='s1'>&#39;lastName&#39;</span><span class='p'>,</span> <span class='s1'>&#39;Obamaomao&#39;</span><span class='p'>);</span>
+    <span class='p'>});</span>
+</code></pre></div>
+<p><strong>2. 延迟使用的模板</strong></p>
+
+<p>有的时候我们不希望模板在页面载入时立即显示，那么可以把它放到script标签中，并增添data-template-name属性来为模板命名，之后就可以在Ember.js中控制模板的填充和显隐了。</p>
+<div class='highlight'><pre><code class='javascript'>    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>div</span> <span class='nx'>id</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>temp</span><span class='o'>-</span><span class='nx'>wrap</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span> <span class='nx'>style</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>border</span><span class='o'>:</span> <span class='mi'>3</span><span class='nx'>px</span> <span class='nx'>solid</span> <span class='err'>#</span><span class='nx'>c22</span><span class='p'>;</span><span class='nx'>width</span><span class='o'>:</span><span class='mi'>300</span><span class='nx'>px</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+        <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='o'>!--</span> <span class='nx'>Insert</span> <span class='nx'>into</span> <span class='nx'>here</span> <span class='o'>--&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/div&amp;gt;</span>
+
+    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>script</span> <span class='nx'>type</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>text</span><span class='o'>/</span><span class='nx'>x</span><span class='o'>-</span><span class='nx'>handlebars</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span> <span class='nx'>data</span><span class='o'>-</span><span class='nx'>template</span><span class='o'>-</span><span class='nx'>name</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>info</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+        <span class='nx'>User</span><span class='o'>:</span> <span class='nx'>Albert</span> <span class='nx'>Hofmann</span>
+        <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>div</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+            <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>b</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span><span class='nx'>Posts</span><span class='o'>:&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/b&amp;gt; </span>
+            <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>br</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+            <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>b</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span><span class='nx'>Hobbies</span><span class='o'>:&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/b&amp;gt; </span>
+        <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/div&amp;gt;</span>
+    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/script&amp;gt;</span>
+
+    <span class='c1'>// Example 2</span>
+    <span class='nx'>App</span><span class='p'>.</span><span class='nx'>InfoView</span> <span class='o'>=</span> <span class='nx'>Em</span><span class='p'>.</span><span class='nx'>View</span><span class='p'>.</span><span class='nx'>extend</span><span class='p'>({</span>
+        <span class='nx'>templateName</span><span class='o'>:</span> <span class='s1'>&#39;info&#39;</span><span class='p'>,</span>
+        <span class='nx'>posts</span><span class='o'>:</span> <span class='mi'>25</span><span class='p'>,</span>
+        <span class='nx'>hobbies</span><span class='o'>:</span> <span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>Riding</span> <span class='nx'>bicycles</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span>
+    <span class='p'>});</span>
+    <span class='nx'>App</span><span class='p'>.</span><span class='nx'>InfoView</span><span class='p'>.</span><span class='nx'>create</span><span class='p'>().</span><span class='nx'>appendTo</span><span class='p'>(</span><span class='s1'>&#39;#temp-wrap&#39;</span><span class='p'>);</span>
+    
+    <span class='c1'>// or</span>
+    <span class='c1'>// var info = App.InfoView.create();</span>
+    <span class='c1'>// info.appendTo(&#39;#temp-wrap&#39;);</span>
+</code></pre></div>
+<p><strong>3. 绑定（Bindings）</strong></p>
+
+<p>一个对象中的属性可以与另外一个对象的属性进行绑定，这样其中一个更新时，另外一个也随之更新。只需要使用Binding字符串，将Binding加在绑定的属性字符串末尾即可。</p>
+<div class='highlight'><pre><code class='javascript'>    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>p</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span><span class='nx'>Binding</span> <span class='nx'>Test</span><span class='o'>:</span> <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>button</span> <span class='nx'>id</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>btn2</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span><span class='nx'>TEST</span><span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/button&amp;gt;&amp;lt;/p&amp;gt;</span>
+
+    <span class='c1'>// Example 3</span>
+    <span class='nx'>App</span><span class='p'>.</span><span class='nx'>country</span> <span class='o'>=</span> <span class='nx'>Ember</span><span class='p'>.</span><span class='nb'>Object</span><span class='p'>.</span><span class='nx'>create</span><span class='p'>({</span>
+        <span class='c1'>// Ending a property with &#39;Binding&#39; tells Ember to</span>
+        <span class='c1'>// create a binding to the presidentName property.</span>
+        <span class='nx'>presidentNameBinding</span><span class='o'>:</span> <span class='s1'>&#39;App.president.name&#39;</span>
+    <span class='p'>});</span>
+    <span class='c1'>// Later, after Ember has resolved bindings...</span>
+    <span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;#btn2&#39;</span><span class='p'>).</span><span class='nx'>click</span><span class='p'>(</span> <span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
+        <span class='nx'>alert</span><span class='p'>(</span><span class='nx'>App</span><span class='p'>.</span><span class='nx'>country</span><span class='p'>.</span><span class='nx'>get</span><span class='p'>(</span><span class='s1'>&#39;presidentName&#39;</span><span class='p'>));</span>  <span class='c1'>// &amp;quot;Barack Obama&amp;quot;</span>
+    <span class='p'>});</span>
+</code></pre></div>
+<p><strong>4. 事件处理</strong></p>
+<div class='highlight'><pre><code class='javascript'>    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='nx'>script</span> <span class='nx'>type</span><span class='o'>=&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>text</span><span class='o'>/</span><span class='nx'>x</span><span class='o'>-</span><span class='nx'>handlebars</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='o'>&amp;</span><span class='nx'>gt</span><span class='p'>;</span>
+    
+        <span class='nx'>This</span> <span class='nx'>is</span> <span class='nx'>a</span> <span class='nx'>clickable</span> <span class='nx'>area</span><span class='o'>!</span>
+    
+    <span class='o'>&amp;</span><span class='nx'>lt</span><span class='p'>;</span><span class='err'>/script&amp;gt;</span>
+
+    <span class='c1'>// Example 4</span>
+    <span class='nx'>App</span><span class='p'>.</span><span class='nx'>ClickableView</span> <span class='o'>=</span> <span class='nx'>Ember</span><span class='p'>.</span><span class='nx'>View</span><span class='p'>.</span><span class='nx'>extend</span><span class='p'>({</span>
+        <span class='nx'>click</span><span class='o'>:</span> <span class='kd'>function</span><span class='p'>(</span><span class='nx'>evt</span><span class='p'>)</span> <span class='p'>{</span>
+            <span class='nx'>alert</span><span class='p'>(</span><span class='o'>&amp;</span><span class='nx'>quot</span><span class='p'>;</span><span class='nx'>ClickableView</span> <span class='nx'>was</span> <span class='nx'>clicked</span><span class='o'>!&amp;</span><span class='nx'>quot</span><span class='p'>;);</span>
+        <span class='p'>}</span>
+    <span class='p'>});</span>
+</code></pre></div>
+<p>目前暂且介绍这几个，详细的可以查看<a href='http://emberjs.com/documentation/'>官方文档</a>，如果看E文比较有困难的话，敬请关注本站，稍后如时间允许将放出中文文档。</p>
+
+<p>这里有一些相关资料，感兴趣的同学可以继续深入研究一下：</p>
+
+<p><a href='http://www.slideshare.net/jiguang/java-scriptmvcwithemberjs' title='Java script+mvc+with+emberjs'>http://www.adobe.com/devnet/<a href='http://www.slideshare.net/jiguang/java-scriptmvcwithemberjs' title='Java script+mvc+with+emberjs'>html5</a>/articles/flame-on-a-beginners-guide-to-emberjs.html</a> <a href='http://emberjs.com/documentation/'>http://emberjs.com/documentation/</a><br /><a href='http://www.andymatthews.net/read/2012/03/07/Getting-Started-With-EmberJS'>http://www.andymatthews.net/read/2012/03/07/Getting-Started-With-EmberJS</a><br /><a href='http://ngauthier.com/2012/02/playing-with-ember.html'>http://ngauthier.com/2012/02/playing-with-ember.html</a><br /><a href='http://emberjs.tumblr.com/'>http://emberjs.tumblr.com/</a></p>
+
+<p>下面是关于本文的一个PPT：</p>
+
+<p><strong><a href='http://www.slideshare.net/jiguang/java-scriptmvcwithemberjs' title='Java script+mvc+with+emberjs'>Java script+mvc+with+emberjs</a></strong> View more <a href='http://www.slideshare.net/'>presentations</a> from <a href='http://www.slideshare.net/jiguang'>ji guang</a>.</p>
+
+<p>这里有本文介绍的代码制成的DEMO：</p>
+
+<p><a href='http://jiguang.github.com/demo/ember/index.html'>查看DEMO</a></p>
+            <br>
+            <br>
+            注：本文版权归<a href="http://www.44ux.com"> 姬小光 の 乱码人生 </a>所有，转载请注明出处。
+            <br>
+            <nav id="nav-below">
+                
+                <div class="nav-previous"><a href="/blog/2012/06/04/javascript-type-conversion-and-auto-insert-semicolon" title="JavaScript类型转换与自动分号插入"><span class="meta-nav">&larr;</span> Previous Post</a></div>
+                
+
+                
+                <div class="nav-next"><a href="/blog/2012/06/21/centos5-install-nodejs" title="CentOS 5.5 上安装 Node.js">Next Post <span class="meta-nav">&rarr;</span></a></div>
+                
+            </nav>
+            
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'hilaser'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div><!-- end entry-content -->
+
+
+    </div><!-- end entry-wrap -->
+
+    
+    <footer class="cat-tags">
+        <ul class="tag_box">
+            
+            
+
+
+  
+     
+    	<li><a href="/tags.html#Ember.js-ref">Ember.js <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#MVC-ref">MVC <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#教程-ref">教程 <span>4</span></a></li>
+    
+  
+
+
+
+        </ul>
+    </footer><!-- end cat-tags -->
+    
+</article><!-- end post -->
+
+
+    </div><!-- end content -->
+
+    <footer id="colophon">
+    <div id="supplementary" class="clearfix">
+        <div id="first" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">About</h3>
+                <div class="textwidget">
+
+                    <iframe width="100%" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=350&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=1&uid=1541312947&verifier=c6926a93&dpc=1"></iframe>
+
+                </div>
+            </aside>
+
+            <aside class="widget widget_nilmini_sociallinks">
+                <h3 class="widget-title">Find me on</h3>
+                <ul class="sociallinks">
+                    <li><a href="http://twitter.com/_jiguang" class="twitter" title="Twitter" target="_blank">Twitter</a></li>
+                    <li><a href="http://www.facebook.com/jiguang1984" class="facebook" title="Facebook" target="_blank">Facebook</a></li>
+                    <li><a href="http://www.slideshare.net/jiguang" class="slideshare" title="Slideshare" target="_blank">Slideshare</a></li>
+                    <li><a href="http://feed.44ux.com/" class="rss" title="RSS Feed" target="_blank">RSS Feed</a></li>
+                </ul>
+                    <!-- end .sociallinks -->
+            </aside>
+        </div><!-- #first .widget-area -->
+
+        <div id="second" class="widget-area">
+            <!-- <aside class="widget bwp-rc-widget">
+                <h3 class="widget-title">Recent Comments</h3>
+                <ul class="bwp-rc-ulist">
+                    <li class="sidebar-comment"><img alt='User Avatar' src='http://1.gravatar.com/avatar/feaafe28bc9b142edba8a1b661beda34?s=40&amp;d=&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /><div class="comment-content"><p><span class="sidebar-comment-autor"><a href="http://themes.elmastudio.de/nilmini/2011/08/03/a-standard-post-with-images/#comment-44" title="Comment on A standard post with images">Ellen Bauer</a></span><br />Hi Manuel, thanks for helping me test the comments.</p></div></li>
+                </ul>
+            </aside> -->
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Friends</h3>
+                <ul class="clearfix">
+                    <li><a href="http://www.qianduan.net/" target="_blank">前端观察</a></li>
+                    <li><a href="http://www.cn-cuckoo.com/" target="_blank">为之漫笔</a></li>
+                    <li><a href="http://xiedexu.cn/" target="_blank">DeXu.Xie's Blog</a></li>
+                    <li><a href="http://www.feelcss.com/" target="_blank">Hey@feelcss</a></li>
+                    <li><a href="http://www.36ria.com/" target="_blank">ria之家</a></li>
+                    <li><a href="http://www.gracecode.com/" target="_blank" title="明城">Gracecode</a></li>
+                    <li><a href="http://vivienchen.me/" target="_blank">Vivien's blog</a></li>
+                    <li><a href="http://js8.in/" target="_blank">三水清</a></li>
+                    <li><a href="http://yundanran.com/" target="_blank">云淡然</a></li>
+                    <li><a href="http://yekai.net/" target="_blank">叶落花开</a></li>
+                    <li><a href="http://hi.baidu.com/vickeychen/home" target="_blank">小鸽子</a></li>
+                    <li><a href="http://gtalks.net/" target="_blank">极客说</a></li>
+                    <li><a href="http://isnowe.com/" target="_blank">爱斯诺</a></li>
+                    <li><a href="http://lison.sinaapp.com/" target="_blank">阿伦的技术博客</a></li>
+                    <li><a href="http://www.wheattime.com/" target="_blank">麦时</a></li>
+                    <li><a href="http://www.92app.com/" target="_blank">爱佳软</a></li>
+                    <li><a href="http://www.feimos.com/" target="_blank">费墨</a></li>
+                    <li><a href="http://haipi8.com/" target="_blank" title="坤哥">嗨皮吧</a></li>
+                    <li><a href="http://www.hohoo.me/" target="_blank">豪豪</a></li>
+                    <li><a href="http://www.sannielu.com/" target="_blank">LuLu的幸福生活</a></li>
+                    <li><a href="http://lasas.me/" target="_blank">Larthas</a></li>
+                    <li><a href="http://icolin.org/" target="_blank">icolin</a></li>
+                    <li><a href="http://www.bu-anjing.com/" target="_blank">Harika の碎碎念</a></li>
+                    <li><a href="http://www.hotels2map.com/" target="_blank">Jacob</a></li>
+                    <li><a href="http://www.hepeng.org/blog/" target="_blank">Peng</a></li>
+                    <li><a href="http://reeqi.name/" target="_blank">简单生活</a></li>
+                    <li><a href="http://gmeiz.me/" target="_blank">G妹纸</a></li>
+                    <li><a href="http://ooxx.me/" target="_blank">大猫の意淫筆記</a></li>
+                    <li><a href="http://pufen.net/" target="_blank">飘飘</a></li>
+                </ul>
+            </aside>
+        </div><!-- #second .widget-area -->
+
+        <div id="third" class="widget-area">
+            <aside class="widget widget_text">
+                <h3 class="widget-title">Works</h3>
+                <div class="textwidget">
+                    <a href="http://www.ituring.com.cn/book/924?q=%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84css" target="_blank" title="精彩绝伦的CSS">
+                        <img src="http://44ux.com/content/uploads/static/mybook.jpg" alt="精彩绝伦的CSS封面" class="alignleft" width="262" height="257" style="max-width:100%; height:auto;border:1px solid #f0f0f0;" title="" />
+                    </a>
+                </div>
+            </aside>
+
+            <aside class="widget widget_links">
+                <h3 class="widget-title">Downloads</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1074?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第一期">码农第一期</a></li>
+                    <li><a target="_blank" href="http://www.ituring.com.cn/book/1106?q=%E7%A0%81%E5%86%9C" title="图灵公司码农第二期">码农第二期</a></li>
+                </ul>
+            </aside>
+        </div><!-- #third .widget-area -->
+
+    </div><!-- #supplementary -->
+
+    <div id="site-generator">
+        <nav class="menu-footer-menu-container">
+            <ul id="menu-footer-menu" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page5"><a href="/archive.html">Archives</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p>&copy; 2013 Nilmini  | Proudly powered by <a href="https://github.com/mojombo/jekyll" >Jekyll</a><span class="sep"> | </span>Theme: Nilmini by <a href="http://www.elmastudio.de/wordpress-themes/">Elmastudio</a></p>
+
+        <!--<a href="#top-border" class="top">Back to Top &uArr;</a>-->
+    </div><!-- end site generator -->
+</footer><!-- end colophon -->
+</div><!-- end page -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({scrollSpeed: 500});
+    });
+</script>
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=21893488" charset="UTF-8"></script>
+</body>
+</html>

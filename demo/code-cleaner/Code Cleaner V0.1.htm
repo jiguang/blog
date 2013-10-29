@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Code Cleaner V0.1 - An HTML Code Cleaner, Remove Anything You Want.</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script type="text/javascript" src="assets/cleaner.js"></script>
+</head>
+<body>
+<div class="header"><h1>Code Cleaner - An HTML Code Cleaner Which Can Remove Anything You Want.</h1></div>
+<div class="wrapper">
+    <div class="main">
+         <textarea id="code" class="code"></textarea>
+    </div>
+    <div class="toolbar">
+         <div id="opt_panel" class="opt_panel" >
+         <ul id="opt" class="opt" >
+             <li><label for="opt_1"><input id="opt_1" title="remove className" name="" type="checkbox" value="cleanClassName" />className</label></li>
+             <li><label for="opt_2"><input id="opt_2" title="remove Id" name="" type="checkbox" value="cleanId" checked="checked"/>id</label></li>
+             <li><label for="opt_3"><input id="opt_3" title="remove inline style" name="" type="checkbox" value="cleanInlineStyle" checked="checked"/>inline-style</label></li>
+             <li><label for="opt_4"><input id="opt_4" title="remove table attributes" name="" type="checkbox" value="cleanTable" checked="checked"/> table</label></li>
+             <li><label for="opt_5"><input id="opt_5" title="remove link" name="" type="checkbox" value="cleanLink" checked="checked"/>Link</label></li>
+             <li><label for="opt_6"><input id="opt_6" title="remove img " name="" type="checkbox" value="cleanImg" checked="checked"/>img</label></li>
+             <li><label for="opt_7"><input id="opt_7" title="remove script" name="" type="checkbox" value="cleanScript" checked="checked"/>script</label></li>
+             <li><label for="opt_8"><input id="opt_8" title="remove br" name="" type="checkbox" value="cleanBr" checked="checked"/>br</label></li>
+             <li><label for="opt_9"><input id="opt_9" title="remove html comments" name="" type="checkbox" value="cleanHtmlComment" checked="checked"/>html-comment</label></li>
+             <li><label for="opt_100"><input id="opt_100" title="remove blank line" name="" type="checkbox" value="cleanSpaceRow" checked="checked"/>blank</label></li>
+         </ul>
+         <div class="btn_wrap">
+              <button type="button" id="btn_replace_all" title="Execute all checked">Execute</button>
+              <button type="button" id="btn_dis_all" title="Cancel all checked">Cancel All</button>
+              <button type="button" id="btn_back" title="Undo" disabled="disabled">Undo</button>
+              <button type="button" id="btn_clear" title="Clear" disabled="disabled">Clear</button>
+         </div>
+         </div>
+
+         <h2 id="advanced" class="fold">Advanced Options<span class="tip">↓</span></h2>
+         <div id="advanced_panel" class="advanced_panel" style="display:none;">
+             <fieldset>
+                 <label id="label_common_attr" for="common_attr">Clean Custom Attributes (ENTER)</label>
+                 <input type="text" class="common_attr" id="common_attr" title="eg: tabIndex" />
+                 <span class="common_attr_tip" id="common_attr_tip" title=""></span><br />
+                 <button type="button" id="btn_clean_attr">Clean</button>
+                 <button type="button" id="btn_clean_all_custom">Only Keep Common Attributes</button>
+             </fieldset>
+             <fieldset>
+                 <label for="custom_reg">Custom RegExp</label>
+                 <input type="text" id="custom_reg" value="" title="Please input JavaScript Regular Expression"/>
+                 <label for="custom_replace">Replaced By:</label>
+                 <input type="text" id="custom_replace" value="" />
+                 <button type="button" id="btn_custom" title="">Execute Replace</button>
+             </fieldset>
+             <fieldset>
+                 <label for="custom_txt">Replace All Text (FF,Chrome,IE9)</label>
+                 <input type="text" id="custom_txt" value="" title="Place input the text"/>
+                 <button type="button" id="btn_custom_txt" title="">Execute</button>
+             </fieldset>
+         </div>
+    </div>
+</div>
+<div class="footer">
+    Code Cleaner V0.1 by <a href="http://44ux.com" title="Author" target="_blank">JiGuang</a> you can <a href="https://github.com/jiguang/code-cleaner" title="Fork me on Github!" target="_blank">Fork me on Github!</a>
+</div>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28439709-1']);
+    _gaq.push(['_setDomainName', '44ux.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+</body>
+</html>
